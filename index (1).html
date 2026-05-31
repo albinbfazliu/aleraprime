@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aleraprime — B2B Lead Generation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1E3A5F;
+  --text: #0d1b2e;
+  --text-muted: #627282;
+  --bg: #f7f8fa;
+  --white: #ffffff;
+  --border: #e3e8ef;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 6%;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 2px;
+  height: 26px;
+  background: var(--primary);
+}
+
+.logo-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--primary); }
+
+.nav-cta {
+  padding: 9px 22px;
+  background: var(--primary) !important;
+  color: white !important;
+  border-radius: 2px;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase;
+  transition: opacity 0.2s !important;
+}
+.nav-cta:hover { opacity: 0.82 !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 6% 100px;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.hero-rule {
+  position: absolute;
+  top: 0; bottom: 0;
+  right: 36%;
+  width: 0.5px;
+  background: var(--border);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 620px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.05s ease both;
+}
+
+.hero-eyebrow-line {
+  width: 32px;
+  height: 0.5px;
+  background: var(--primary);
+}
+
+.hero-eyebrow span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.hero h1 {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(52px, 6.5vw, 82px);
+  font-weight: 300;
+  line-height: 1.04;
+  color: var(--text);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.hero-desc {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 460px;
+  margin-bottom: 3rem;
+  line-height: 1.9;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.25s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.35s ease both;
+}
+
+.btn-primary {
+  padding: 14px 34px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.btn-ghost {
+  padding: 14px 34px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 0.5px solid var(--primary);
+  border-radius: 2px;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover { background: rgba(30,58,95,0.04); }
+
+.hero-right {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28%;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.45s ease both;
+}
+
+.hero-right-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.h-stat { }
+
+.h-stat .n {
+  font-family: 'Cormorant', serif;
+  font-size: 58px;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1;
+  opacity: 0.18;
+}
+
+.h-stat .l {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* SECTION BASE */
+section { padding: 112px 6%; }
+
+.s-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.s-eyebrow-line {
+  width: 24px;
+  height: 0.5px;
+  background: var(--primary);
+}
+
+.s-eyebrow span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.s-title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.s-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.9;
+}
+
+/* WHAT WE DO */
+.wwd { background: var(--bg); }
+
+.wwd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 5rem;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+}
+
+.wwd-card {
+  background: var(--white);
+  padding: 3rem 2.5rem;
+  transition: background 0.25s;
+  position: relative;
+}
+
+.wwd-card:hover { background: #f0f5fb; }
+
+.wwd-card-num {
+  font-family: 'Cormorant', serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--border);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.wwd-card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.wwd-card p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+/* APPROACH */
+.approach { background: var(--white); }
+
+.approach-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.approach-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+.a-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.a-step:first-child { border-top: 0.5px solid var(--border); }
+
+.a-step-num {
+  font-family: 'Cormorant', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.a-step h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.a-step p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.approach-visual {
+  position: relative;
+  height: 440px;
+}
+
+.av-block-1 {
+  position: absolute;
+  top: 0; left: 0;
+  width: 75%; height: 72%;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+}
+
+.av-block-2 {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 56%; height: 54%;
+  background: var(--primary);
+}
+
+.av-text {
+  position: absolute;
+  top: 50%; left: 38%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant', serif;
+  font-size: 96px;
+  font-weight: 300;
+  color: var(--primary);
+  opacity: 0.07;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* METRICS */
+.metrics {
+  background: var(--primary);
+  padding: 80px 6%;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.m-item {
+  padding: 0 3rem;
+  border-right: 0.5px solid rgba(255,255,255,0.1);
+  text-align: left;
+}
+
+.m-item:first-child { padding-left: 0; }
+.m-item:last-child { border-right: none; }
+
+.m-item .n {
+  font-family: 'Cormorant', serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  display: block;
+}
+
+.m-item .l {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 10px;
+  display: block;
+}
+
+/* VALUES */
+.values { background: var(--bg); }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 5rem;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+}
+
+.val-card {
+  background: var(--white);
+  padding: 3rem 2.5rem;
+}
+
+.val-card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.val-card p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.val-num {
+  font-family: 'Cormorant', serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--border);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* CONTACT */
+.contact { background: var(--white); }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 8rem;
+  align-items: start;
+}
+
+.contact-left h3 {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.contact-left p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 3rem;
+}
+
+.c-details { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.c-detail { display: flex; flex-direction: column; gap: 4px; }
+
+.c-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.c-val {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+
+.form-group label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 13px 16px;
+  border: 0.5px solid var(--border);
+  border-radius: 2px;
+  background: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  background: var(--white);
+}
+
+.form-group textarea { resize: vertical; min-height: 130px; }
+
+.form-submit {
+  padding: 15px 36px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+.form-submit:hover { opacity: 0.85; }
+
+/* AUDIENCES */
+.audiences { background: var(--white); }
+
+.aud-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 5rem;
+  background: var(--border);
+  border: 0.5px solid var(--border);
+}
+
+.aud-card {
+  background: var(--bg);
+  padding: 3rem 2.5rem;
+  transition: background 0.25s;
+}
+
+.aud-card:hover { background: #eef4fb; }
+
+.aud-big {
+  font-family: 'Cormorant', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.aud-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.aud-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+/* REVIEWS */
+.reviews { background: var(--bg); }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.r-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  padding: 2.5rem;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.r-card:hover { border-color: var(--primary); }
+
+.r-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.r-star {
+  width: 14px;
+  height: 14px;
+  background: var(--primary);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0.85;
+}
+
+.r-quote {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.r-author {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.r-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.r-title {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg);
+  border-top: 0.5px solid var(--border);
+  padding: 40px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .wwd-grid { grid-template-columns: repeat(2, 1fr); }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .m-item { border-right: none; padding: 0; }
+  .approach-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .approach-visual { display: none; }
+  .aud-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero-right { display: none; }
+  .hero-rule { display: none; }
+  .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .wwd-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .aud-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark"></div>
+    <span class="logo-text">Aleraprime</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#wwd">What We Do</a></li>
+    <li><a href="#approach">Our Approach</a></li>
+    <li><a href="#values">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Work With Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-rule"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>B2B Lead Generation</span>
+    </div>
+    <h1>Connecting businesses<br>with <em>qualified</em><br>decision-makers.</h1>
+    <p class="hero-desc">Aleraprime partners with companies that need a reliable, scalable supply of high-intent B2B leads. We deliver verified prospects so your team can focus entirely on closing.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Work With Us</a>
+      <a href="#wwd" class="btn-ghost">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="h-stat">
+        <div class="n">100%</div>
+        <div class="l">Consent verified</div>
+      </div>
+      <div class="h-stat">
+        <div class="n">48h</div>
+        <div class="l">First delivery</div>
+      </div>
+      <div class="h-stat">
+        <div class="n">B2B</div>
+        <div class="l">Focused exclusively</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="wwd" id="wwd">
+  <div class="s-eyebrow">
+    <div class="s-eyebrow-line"></div>
+    <span>What we do</span>
+  </div>
+  <h2 class="s-title">Lead generation<br>done properly.</h2>
+  <p class="s-sub">We source, verify, and deliver qualified leads to businesses that depend on a consistent pipeline. Every lead is consent-based, data-complete, and ready for your sales team.</p>
+  <div class="wwd-grid">
+    <div class="wwd-card">
+      <span class="wwd-card-num">01</span>
+      <h3>Exclusive Leads</h3>
+      <p>Delivered to one buyer only. Real-time, fresh leads with full contact data and consent documentation — no competition, full ownership.</p>
+    </div>
+    <div class="wwd-card">
+      <span class="wwd-card-num">02</span>
+      <h3>Shared Leads</h3>
+      <p>Cost-effective leads distributed to a controlled number of buyers. Ideal for high-volume teams with fast, systematic follow-up processes.</p>
+    </div>
+    <div class="wwd-card">
+      <span class="wwd-card-num">03</span>
+      <h3>Aged Lead Batches</h3>
+      <p>Verified leads at a significantly reduced cost per unit. Built for teams with strong nurturing systems and re-engagement workflows.</p>
+    </div>
+    <div class="wwd-card">
+      <span class="wwd-card-num">04</span>
+      <h3>Custom Campaigns</h3>
+      <p>We build and run targeted lead generation campaigns around your specific audience, geography, and performance objectives.</p>
+    </div>
+    <div class="wwd-card">
+      <span class="wwd-card-num">05</span>
+      <h3>Data Enrichment</h3>
+      <p>Append missing fields to your existing lead lists — contact details, company data, and intent signals that improve conversion rates.</p>
+    </div>
+    <div class="wwd-card">
+      <span class="wwd-card-num">06</span>
+      <h3>Ongoing Supply</h3>
+      <p>Structured supply agreements for companies that need a reliable, recurring volume of qualified leads month over month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <div>
+      <div class="s-eyebrow">
+        <div class="s-eyebrow-line"></div>
+        <span>Our approach</span>
+      </div>
+      <h2 class="s-title">Simple process.<br>Measurable results.</h2>
+      <p class="s-sub" style="margin-bottom:0">No complex platforms or lengthy onboarding. We operate with clarity and precision at every stage.</p>
+      <div class="approach-steps">
+        <div class="a-step">
+          <div class="a-step-num">01</div>
+          <div>
+            <h4>Define your requirements</h4>
+            <p>Tell us your target market, volume needs, geographic scope, and budget. We design a lead package built around your specific goals.</p>
+          </div>
+        </div>
+        <div class="a-step">
+          <div class="a-step-num">02</div>
+          <div>
+            <h4>Review a free sample</h4>
+            <p>Before any commitment, we provide a sample batch. You evaluate the data quality, completeness, and relevance firsthand.</p>
+          </div>
+        </div>
+        <div class="a-step">
+          <div class="a-step-num">03</div>
+          <div>
+            <h4>Receive and integrate</h4>
+            <p>Leads delivered via CSV, direct CRM integration, or real-time API — whichever fits your existing workflow.</p>
+          </div>
+        </div>
+        <div class="a-step">
+          <div class="a-step-num">04</div>
+          <div>
+            <h4>Scale on your terms</h4>
+            <p>Adjust volume, pause, or expand at any time. Replacement guarantees on invalid leads and a dedicated account contact throughout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="approach-visual">
+      <div class="av-block-1"></div>
+      <div class="av-block-2"></div>
+      <div class="av-text">AP</div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="metrics-grid">
+    <div class="m-item">
+      <span class="n">100%</span>
+      <span class="l">Opt-in consent</span>
+    </div>
+    <div class="m-item">
+      <span class="n">48h</span>
+      <span class="l">First delivery</span>
+    </div>
+    <div class="m-item">
+      <span class="n">4</span>
+      <span class="l">Lead formats</span>
+    </div>
+    <div class="m-item">
+      <span class="n">24h</span>
+      <span class="l">Response time</span>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="values" id="values">
+  <div class="s-eyebrow">
+    <div class="s-eyebrow-line"></div>
+    <span>Why Aleraprime</span>
+  </div>
+  <h2 class="s-title">What sets us apart.</h2>
+  <p class="s-sub">We operate with a set of non-negotiable standards that define how we source, handle, and deliver every lead.</p>
+  <div class="values-grid">
+    <div class="val-card">
+      <span class="val-num">— 01</span>
+      <h3>Verified & Compliant</h3>
+      <p>Every lead carries documented consent. We maintain full sourcing transparency and compliance records available to all clients on request.</p>
+    </div>
+    <div class="val-card">
+      <span class="val-num">— 02</span>
+      <h3>Data Integrity</h3>
+      <p>Leads are validated before delivery — no duplicates, no invalid contacts, no incomplete records. What you receive is what you paid for.</p>
+    </div>
+    <div class="val-card">
+      <span class="val-num">— 03</span>
+      <h3>Speed to Delivery</h3>
+      <p>From agreement to first delivery within 48 hours. Real-time lead options available for clients who require immediate pipeline flow.</p>
+    </div>
+    <div class="val-card">
+      <span class="val-num">— 04</span>
+      <h3>Dedicated Partnership</h3>
+      <p>Every client has a named account contact. No automated ticketing, no generic support — direct communication from day one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="audiences" id="audiences">
+  <div class="s-eyebrow">
+    <div class="s-eyebrow-line"></div>
+    <span>Who we reach</span>
+  </div>
+  <h2 class="s-title">Audiences at scale.</h2>
+  <p class="s-sub">We maintain access to large, segmented audiences of verified business decision-makers — giving our clients an immediate and reliable pipeline from day one.</p>
+  <div class="aud-grid">
+    <div class="aud-card">
+      <span class="aud-big">12M+</span>
+      <span class="aud-label">Business decision-makers</span>
+      <p class="aud-desc">Owners, directors, and C-suite contacts across mid-market and enterprise companies in the US and Canada.</p>
+    </div>
+    <div class="aud-card">
+      <span class="aud-big">8.5M+</span>
+      <span class="aud-label">SMB owners & operators</span>
+      <p class="aud-desc">Verified small and medium business principals actively seeking services, solutions, and partnerships.</p>
+    </div>
+    <div class="aud-card">
+      <span class="aud-big">6.2M+</span>
+      <span class="aud-label">High-intent prospects</span>
+      <p class="aud-desc">Contacts who have expressed active purchase intent within the last 30 days — the highest-converting segment we supply.</p>
+    </div>
+    <div class="aud-card">
+      <span class="aud-big">5.8M+</span>
+      <span class="aud-label">Opt-in verified contacts</span>
+      <p class="aud-desc">Fully consented data with documented opt-in records — compliant with current B2B marketing and data standards.</p>
+    </div>
+    <div class="aud-card">
+      <span class="aud-big">5.1M+</span>
+      <span class="aud-label">Geographically segmented</span>
+      <p class="aud-desc">Filterable by state, metro area, and zip code across all 50 US states. Precision targeting at any geographic scale.</p>
+    </div>
+    <div class="aud-card">
+      <span class="aud-big">3.4M+</span>
+      <span class="aud-label">Senior-level executives</span>
+      <p class="aud-desc">VP, Director, and C-level contacts verified by title, company size, and industry — ideal for enterprise-facing sales teams.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="s-eyebrow">
+    <div class="s-eyebrow-line"></div>
+    <span>Client reviews</span>
+  </div>
+  <h2 class="s-title">What our clients say.</h2>
+  <p class="s-sub">We measure our success by the results our partners achieve. Here is what a selection of our clients have shared about working with Aleraprime.</p>
+  <div class="reviews-grid">
+    <div class="r-card">
+      <div class="r-stars">
+        <div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div>
+      </div>
+      <p class="r-quote">"The quality of leads we received from Aleraprime was noticeably higher than what we had been buying elsewhere. The data was complete, the contacts were reachable, and the conversion rate exceeded our benchmark within the first two weeks."</p>
+      <div class="r-author">
+        <span class="r-name">Marcus D.</span>
+        <span class="r-title">VP of Sales, Financial Services Firm</span>
+      </div>
+    </div>
+    <div class="r-card">
+      <div class="r-stars">
+        <div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div>
+      </div>
+      <p class="r-quote">"What stood out immediately was the transparency. We received a free sample before committing, our account contact was responsive from day one, and every delivery came with clear documentation. Exactly what we needed."</p>
+      <div class="r-author">
+        <span class="r-name">Sarah L.</span>
+        <span class="r-title">Director of Growth, B2B Agency</span>
+      </div>
+    </div>
+    <div class="r-card">
+      <div class="r-stars">
+        <div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div>
+      </div>
+      <p class="r-quote">"We scaled from a test batch to a full ongoing supply agreement within six weeks. The process was straightforward and the team handled everything efficiently. Aleraprime has become a core part of our acquisition strategy."</p>
+      <div class="r-author">
+        <span class="r-name">James O.</span>
+        <span class="r-title">Head of Acquisition, National Services Group</span>
+      </div>
+    </div>
+    <div class="r-card">
+      <div class="r-stars">
+        <div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div>
+      </div>
+      <p class="r-quote">"After trying multiple lead vendors, Aleraprime was the first that actually delivered on their claims. The leads were fresh, the fields were complete, and the invalid rate was the lowest we have ever seen from an external supplier."</p>
+      <div class="r-author">
+        <span class="r-name">Priya M.</span>
+        <span class="r-title">Operations Manager, Consulting Group</span>
+      </div>
+    </div>
+    <div class="r-card">
+      <div class="r-stars">
+        <div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div>
+      </div>
+      <p class="r-quote">"The aged lead batches were a smart addition to our pipeline. At a fraction of the cost, our team was able to re-engage a significant number of prospects through structured follow-up. The ROI on those batches surprised us."</p>
+      <div class="r-author">
+        <span class="r-name">Ryan T.</span>
+        <span class="r-title">Sales Director, Mid-Market Company</span>
+      </div>
+    </div>
+    <div class="r-card">
+      <div class="r-stars">
+        <div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div>
+      </div>
+      <p class="r-quote">"Aleraprime understood our geographic requirements immediately and delivered a targeted list that matched our criteria precisely. The custom campaign they built for us generated more qualified conversations than our previous three vendors combined."</p>
+      <div class="r-author">
+        <span class="r-name">Catherine B.</span>
+        <span class="r-title">CMO, Regional Enterprise Group</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="s-eyebrow">
+        <div class="s-eyebrow-line"></div>
+        <span>Work with us</span>
+      </div>
+      <h3>Ready to build<br>your pipeline?</h3>
+      <p>Tell us about your business and what you need. We respond within 24 hours with a tailored proposal and a free sample batch — no commitment required.</p>
+      <div class="c-details">
+        <div class="c-detail">
+          <span class="c-label">Email</span>
+          <span class="c-val">partnerships@aleraprime.com</span>
+        </div>
+        <div class="c-detail">
+          <span class="c-label">Response time</span>
+          <span class="c-val">Within 24 hours</span>
+        </div>
+        <div class="c-detail">
+          <span class="c-label">First step</span>
+          <span class="c-val">Free sample — no minimums, no contracts</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div id="form-success" style="display:none;padding:1.5rem;background:#eaf3de;border:0.5px solid #639922;border-radius:3px;color:#3B6D11;font-size:14px;">Thank you — we have received your inquiry and will respond within 24 hours.</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" name="firstname" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" name="lastname" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" name="company" placeholder="Company name">
+      </div>
+      <div class="form-group">
+        <label>Business email</label>
+        <input type="email" name="email" placeholder="you@company.com">
+      </div>
+      <div class="form-group">
+        <label>Lead volume needed</label>
+        <select name="volume">
+          <option value="">Select estimated volume...</option>
+          <option>Under 500 leads</option>
+          <option>500 – 2,000 leads</option>
+          <option>2,000 – 10,000 leads</option>
+          <option>10,000+ / ongoing supply</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="Describe your target market, geography, and any specific requirements..."></textarea>
+      </div>
+      <button class="form-submit" id="submit-btn">Send Inquiry</button>
+    </div>
+    <script>
+    const btn = document.getElementById('submit-btn');
+    const success = document.getElementById('form-success');
+    const inputs = document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
+    btn.addEventListener('click', async function(e) {
+      e.preventDefault();
+      const data = {};
+      inputs.forEach(i => { if(i.name) data[i.name] = i.value; });
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xredwboz', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        if(res.ok) {
+          success.style.display = 'block';
+          inputs.forEach(i => i.value = '');
+          btn.style.display = 'none';
+        } else {
+          btn.textContent = 'Send Inquiry';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.textContent = 'Send Inquiry';
+        btn.disabled = false;
+      }
+    });
+    </script>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">
+    <div class="logo-mark"></div>
+    <span class="logo-text">Aleraprime</span>
+  </a>
+  <span class="footer-copy">© 2025 Aleraprime. All rights reserved.</span>
+</footer>
+
+</body>
+</html>
