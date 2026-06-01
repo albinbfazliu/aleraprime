@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85' fill='%231E3A5F' font-family='serif'>A</text></svg>">
 <title>Aleraprime — B2B Lead Generation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1090,27 +1091,28 @@ footer {
       </div>
     </div>
     <div class="contact-form">
+      <div id="form-success" style="display:none;padding:1.5rem;background:#eaf3de;border:0.5px solid #639922;border-radius:3px;color:#3B6D11;font-size:14px;">Thank you — we have received your inquiry and will respond within 24 hours.</div>
       <div class="form-row">
         <div class="form-group">
           <label>First name</label>
-          <input type="text" placeholder="John">
+          <input type="text" name="firstname" placeholder="John">
         </div>
         <div class="form-group">
           <label>Last name</label>
-          <input type="text" placeholder="Smith">
+          <input type="text" name="lastname" placeholder="Smith">
         </div>
       </div>
       <div class="form-group">
         <label>Company</label>
-        <input type="text" placeholder="Company name">
+        <input type="text" name="company" placeholder="Company name">
       </div>
       <div class="form-group">
         <label>Business email</label>
-        <input type="email" placeholder="you@company.com">
+        <input type="email" name="email" placeholder="you@company.com">
       </div>
       <div class="form-group">
         <label>Lead volume needed</label>
-        <select>
+        <select name="volume">
           <option value="">Select estimated volume...</option>
           <option>Under 500 leads</option>
           <option>500 – 2,000 leads</option>
@@ -1120,9 +1122,40 @@ footer {
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea placeholder="Describe your target market, geography, and any specific requirements..."></textarea>
+        <textarea name="message" placeholder="Describe your target market, geography, and any specific requirements..."></textarea>
       </div>
-      <button class="form-submit">Send Inquiry</button>
+      <button class="form-submit" id="submit-btn">Send Inquiry</button>
+    </div>
+    <script>
+    const btn = document.getElementById('submit-btn');
+    const success = document.getElementById('form-success');
+    const inputs = document.querySelectorAll('.contact-form input, .contact-form select, .contact-form textarea');
+    btn.addEventListener('click', async function(e) {
+      e.preventDefault();
+      const data = {};
+      inputs.forEach(i => { if(i.name) data[i.name] = i.value; });
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xredwboz', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        if(res.ok) {
+          success.style.display = 'block';
+          inputs.forEach(i => i.value = '');
+          btn.style.display = 'none';
+        } else {
+          btn.textContent = 'Send Inquiry';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.textContent = 'Send Inquiry';
+        btn.disabled = false;
+      }
+    });
+    </script>
     </div>
   </div>
 </section>
