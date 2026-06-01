@@ -151,7 +151,7 @@ nav {
 
 .hero h1 {
   font-family: 'Cormorant', serif;
-  font-size: clamp(52px, 6.5vw, 82px);
+  font-size: clamp(38px, 4.5vw, 62px);
   font-weight: 300;
   line-height: 1.04;
   color: var(--text);
@@ -218,7 +218,7 @@ nav {
 .hero-right {
   position: absolute;
   right: 6%;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   width: 28%;
   opacity: 0;
@@ -228,18 +228,27 @@ nav {
 .hero-right-inner {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 0;
 }
 
-.h-stat { }
+.h-stat {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.h-stat:first-child { border-top: 0.5px solid var(--border); }
 
 .h-stat .n {
   font-family: 'Cormorant', serif;
-  font-size: 58px;
+  font-size: 42px;
   font-weight: 300;
   color: var(--primary);
   line-height: 1;
-  opacity: 0.18;
+  opacity: 0.6;
+  min-width: 80px;
 }
 
 .h-stat .l {
@@ -248,7 +257,6 @@ nav {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-top: 6px;
 }
 
 /* SECTION BASE */
@@ -926,7 +934,7 @@ footer {
 }
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
   gap: 4rem;
   padding-bottom: 4rem;
   margin-bottom: 3rem;
@@ -969,6 +977,27 @@ footer {
 .footer-copy { color: rgba(255,255,255,0.35) !important; }
 
 /* RESPONSIVE */
+/* MOBILE MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--primary);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
 @media (max-width: 1024px) {
   .about-inner { grid-template-columns: 1fr; gap: 4rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -982,18 +1011,43 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .hero { padding: 120px 6% 80px; min-height: auto; }
   .hero-right { display: none; }
   .hero-rule { display: none; }
-  .contact-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .hero h1 { font-size: clamp(32px, 8vw, 48px); }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 6%;
+    border-bottom: 0.5px solid var(--border);
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 0.5px solid var(--border); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a { display: block; padding: 1rem 0; font-size: 15px; }
+  .nav-cta { display: inline-block !important; margin: 0.75rem 0; }
+  section { padding: 72px 6%; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .wwd-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
   .aud-grid { grid-template-columns: 1fr; }
   .reviews-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .trusted-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .about-right { grid-template-columns: 1fr 1fr; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .m-item { border-right: none; padding: 0; }
+  .approach-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .approach-visual { display: none; }
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
@@ -1004,7 +1058,10 @@ footer {
     <div class="logo-mark"></div>
     <span class="logo-text">Aleraprime</span>
   </a>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#wwd">What We Do</a></li>
     <li><a href="#approach">Our Approach</a></li>
@@ -1012,6 +1069,18 @@ footer {
     <li><a href="#contact" class="nav-cta">Work With Us</a></li>
   </ul>
 </nav>
+<script>
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('nav-links');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  nav.classList.toggle('open');
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  ham.classList.remove('open');
+  nav.classList.remove('open');
+}));
+</script>
 
 <!-- HERO -->
 <section class="hero">
@@ -1049,15 +1118,15 @@ footer {
 <!-- TRUSTED BY -->
 <div class="trusted">
   <div class="trusted-inner">
-    <span class="trusted-label">Trusted by teams across</span>
+    <span class="trusted-label" style="color:#627282;">Trusted by teams across</span>
     <div class="trusted-divider"></div>
     <div class="trusted-logos">
-      <span class="trusted-logo">Financial Services</span>
-      <span class="trusted-logo">SaaS</span>
-      <span class="trusted-logo">Insurance</span>
-      <span class="trusted-logo">Consulting</span>
-      <span class="trusted-logo">Real Estate</span>
-      <span class="trusted-logo">Healthcare</span>
+      <span class="trusted-logo" style="color:#1E3A5F;opacity:0.6;">Financial Services</span>
+      <span class="trusted-logo" style="color:#1E3A5F;opacity:0.6;">SaaS</span>
+      <span class="trusted-logo" style="color:#1E3A5F;opacity:0.6;">Insurance</span>
+      <span class="trusted-logo" style="color:#1E3A5F;opacity:0.6;">Consulting</span>
+      <span class="trusted-logo" style="color:#1E3A5F;opacity:0.6;">Real Estate</span>
+      <span class="trusted-logo" style="color:#1E3A5F;opacity:0.6;">Healthcare</span>
     </div>
   </div>
 </div>
@@ -1105,8 +1174,8 @@ footer {
     <div style="position:absolute;right:-40px;bottom:-40px;width:280px;height:280px;border:0.5px solid rgba(255,255,255,0.06);border-radius:50%;"></div>
     <div style="position:absolute;right:40px;bottom:40px;width:160px;height:160px;border:0.5px solid rgba(255,255,255,0.06);border-radius:50%;"></div>
     <p style="font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;">Our mission</p>
-    <h3 style="font-family:'Cormorant',serif;font-size:clamp(28px,2.8vw,42px);font-weight:300;line-height:1.2;color:white;margin-bottom:1.5rem;">"We find the decision-makers so your team can focus entirely on closing."</h3>
-    <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:2.5rem;">Every lead we deliver is verified, consent-based, and ready for outreach. No recycled data, no shortcuts.</p>
+    <h3 style="font-family:'Cormorant',serif;font-size:clamp(28px,2.8vw,42px);font-weight:300;line-height:1.2;color:white;margin-bottom:1.5rem;">"We reach out so your business doesn't have to. Every lead is a hand extended toward your next best client."</h3>
+    <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:2.5rem;">We do the hard work of finding, verifying, and delivering the right decision-makers — so your team can focus on what they do best: closing.</p>
     <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:white;text-decoration:none;border:0.5px solid rgba(255,255,255,0.35);padding:12px 28px;border-radius:2px;align-self:flex-start;transition:background 0.2s;">Work With Us &rarr;</a>
   </div>
 </div>
@@ -1558,10 +1627,20 @@ footer {
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
+    <div class="footer-col">
+      <h4>Follow us</h4>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/company/126293967" target="_blank" style="display:flex;align-items:center;gap:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2025 Aleraprime. All rights reserved.</span>
-    <span class="footer-copy">B2B Lead Generation</span>
   </div>
 </footer>
 
