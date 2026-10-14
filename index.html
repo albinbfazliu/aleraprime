@@ -30,6 +30,7 @@
   "@type": "ProfessionalService",
   "name": "Alera Prime",
   "url": "https://aleraprime.com/",
+  "email": "partnerships@aleraprime.com",
   "logo": "https://aleraprime.com/assets/img/favicon.svg",
   "image": "https://aleraprime.com/assets/img/og-image.png",
   "description": "Data & Business Intelligence services company working with organizations in the United States and Europe.",
@@ -103,8 +104,64 @@
 .builtin-title { margin: clamp(56px, 6vw, 80px) 0 22px; font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); }
 .principles.p4 { grid-template-columns: repeat(4, 1fr); gap: 32px 40px; }
 
+/* sample dashboard */
+.dash { margin: 0; padding: clamp(18px, 2.4vw, 28px); background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+.dash-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px 20px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.dash-eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); }
+.dash-title { margin-top: 3px; font-size: 18px; font-weight: 600; color: var(--navy); }
+.dash-badge { padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--mist); font-size: 12.5px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+.tile { padding: 16px 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--mist); }
+.tile-k { font-size: 13px; color: var(--muted); }
+.tile-v { margin-top: 4px; font-size: clamp(24px, 2.3vw, 30px); font-weight: 600; letter-spacing: -.015em; color: var(--navy); line-height: 1.15; }
+.tile-d { display: flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.st { font-size: 10px; line-height: 1; }
+.st-good { color: #0ca30c; }
+.st-warn { color: #c98a00; }
+.dash-body { display: grid; grid-template-columns: 1.25fr 1fr; gap: 12px; margin-top: 12px; }
+.panel { display: flex; flex-direction: column; min-width: 0; padding: 18px 18px 14px; border: 1px solid var(--line); border-radius: 10px; }
+.panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; margin-bottom: 10px; }
+.panel-title { font-size: 14.5px; font-weight: 600; color: var(--navy); }
+.panel-title span { font-weight: 400; color: var(--faint); }
+.dash-legend { display: flex; gap: 16px; font-size: 13px; color: var(--muted); }
+.dash-legend span { display: inline-flex; align-items: center; gap: 7px; }
+.lk { display: inline-block; }
+.lk-actual { width: 10px; height: 12px; border-radius: 3px 3px 0 0; background: #14A0A8; }
+.lk-target { position: relative; width: 16px; height: 2px; border-radius: 2px; background: #3D5FC4; }
+.lk-target::after { content: ""; position: absolute; left: 4px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: #3D5FC4; box-shadow: 0 0 0 2px #fff; }
+.rev-chart { position: relative; flex: 1; min-height: 250px; }
+.rev-chart svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.rc-grid { stroke: #E9EDF1; stroke-width: 1; }
+.rc-axis { fill: var(--faint); font: 500 11.5px var(--sans); font-variant-numeric: tabular-nums; }
+.rc-bar { fill: #14A0A8; }
+.rc-target { fill: none; stroke: #3D5FC4; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.rc-tdot { fill: #3D5FC4; stroke: #fff; stroke-width: 2; }
+.rc-lbl { fill: var(--navy); font: 600 12px var(--sans); }
+.rc-hit { fill: transparent; cursor: default; }
+.rc-col.on .rc-bar { fill: #0F8C93; }
+.rc-col.on .rc-band { fill: var(--mist); }
+.rc-band { fill: transparent; }
+.rc-tip { position: absolute; z-index: 2; pointer-events: none; padding: 9px 12px; border-radius: 8px; background: var(--navy); color: #fff; font-size: 12.5px; line-height: 1.5; white-space: nowrap; box-shadow: 0 8px 20px -8px rgba(11,27,43,.5); transform: translate(-50%, -100%); opacity: 0; transition: opacity .12s; }
+.rc-tip.on { opacity: 1; }
+.rc-tip b { display: block; margin-bottom: 2px; font-size: 12px; color: var(--teal-lt); }
+.rc-tip i { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 2px; vertical-align: 0; }
+.kpi { width: 100%; border-collapse: collapse; font-size: 14px; }
+.kpi th, .kpi td { padding: 10px 6px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; color: var(--text); }
+.kpi thead th { border-top: 0; padding-top: 0; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.kpi th:first-child { padding-left: 0; text-align: left; }
+.kpi td:last-child { padding-right: 0; }
+.kpi tbody th { font-weight: 600; color: var(--navy); line-height: 1.3; }
+.kpi .fn { display: block; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+.pill { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.pill span { font-size: 11px; }
+.pill-good { background: #E6F6E6; color: #0B6B0B; }
+.pill-warn { background: #FFF4DB; color: #8A5A00; }
+.dash-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; margin-top: 14px; font-size: 12.5px; color: var(--faint); }
+.dash-foot span { display: inline-flex; align-items: center; gap: 8px; }
+.dot-ok { width: 8px; height: 8px; border-radius: 50%; background: #0ca30c; box-shadow: 0 0 0 3px rgba(12,163,12,.15); }
+
 /* contractor logos */
-.xp-head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
+.xp-head { max-width: 640px; margin: 0 auto 36px; text-align: center; }
 .xp-head h2 { font-size: clamp(26px, 2.6vw, 34px); }
 .xp-head p { margin-top: 10px; color: var(--muted); font-size: 16px; }
 .logo-wall { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
@@ -129,7 +186,12 @@
 .contact-card { padding: clamp(28px, 3.5vw, 40px); background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
 .contact-card h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; letter-spacing: -.01em; line-height: 1.15; }
 .contact-card > p { margin-top: 12px; color: var(--muted); }
-.contact-card .btn { margin-top: 26px; }
+.mail-line { display: flex; align-items: center; gap: 14px; margin-top: 24px; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--mist); transition: border-color .2s var(--ease), background .2s var(--ease); }
+.mail-line:hover { border-color: var(--teal); background: var(--teal-wash); }
+.mail-line .ic { flex: none; width: 38px; height: 38px; padding: 7px; border-radius: 9px; background: #fff; }
+.mail-k { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.mail-v { display: block; margin-top: 2px; font-size: clamp(16px, 1.5vw, 19px); font-weight: 600; color: var(--navy); overflow-wrap: anywhere; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
 .contact-card .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .contact-card .chips li { font-size: 13px; font-weight: 500; color: var(--navy-2); padding: 5px 11px; border-radius: 999px; background: var(--mist); border: 1px solid var(--line); }
 .contact-card .lbl { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
@@ -140,6 +202,8 @@
   .principles.p4 { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 980px) {
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .dash-body { grid-template-columns: 1fr; }
   .hero-facts.facts-3 { grid-template-columns: 1fr; }
   .hero-facts.facts-3 li, .hero-facts.facts-3 li:nth-child(even) { padding: 20px 0; padding-left: 0; border-left: 0; }
   .hero-facts.facts-3 li + li { border-top: 1px solid var(--on-dark-faint); }
@@ -159,12 +223,24 @@
   .service-combine { padding: 28px 24px; }
   .principles.p4 { grid-template-columns: 1fr; }
   #method .step h3 { margin-top: 8px; }
+  .tiles { gap: 8px; }
+  .tile { padding: 12px 12px; }
+  .tile-k, .tile-d { font-size: 12px; }
+  .panel { padding: 14px 12px 10px; }
+  .rev-chart { min-height: 220px; flex: none; height: 220px; }
+  .kpi { font-size: 13px; }
+  .kpi th, .kpi td { padding: 9px 4px; }
+  .kpi thead th:nth-child(3), .kpi tbody td:nth-child(3) { display: none; }
   .logo-wall { gap: 12px; }
   .logo-item { flex-basis: calc((100% - 12px) / 2); padding: 20px 12px 16px; }
   .logo-box { height: 52px; }
   .logo-box img { max-height: 38px; }
   .logo-name { font-size: 13.5px; }
-  .contact-card .btn { width: 100%; }
+  .contact-actions .btn { width: 100%; }
+  .mail-line { padding: 14px; }
+  .mail-line .ic { display: none; }
+  .mail-v { font-size: 15.5px; letter-spacing: -.01em; overflow-wrap: normal; white-space: nowrap; }
+  .contact-card { padding: 26px 20px; }
 }
 </style>
 </head>
@@ -321,6 +397,74 @@
   </div>
 </section>
 
+<!-- SAMPLE DASHBOARD -->
+<section class="section" id="sample">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">Sample dashboard</p>
+        <h2 class="reveal d1">What management sees.</h2>
+      </div>
+      <p class="intro reveal d2">An example of the executive reporting we build: agreed KPIs with targets and thresholds, refreshed automatically from one consistent data model.</p>
+    </div>
+
+    <figure class="dash reveal" aria-labelledby="dashTitle">
+      <div class="dash-top">
+        <div>
+          <p class="dash-eyebrow">Executive KPI report</p>
+          <p class="dash-title" id="dashTitle">Company performance, year to date</p>
+        </div>
+        <span class="dash-badge">Illustrative sample data</span>
+      </div>
+
+      <div class="tiles">
+        <div class="tile"><p class="tile-k">Revenue, year to date</p><p class="tile-v">$43.3M</p><p class="tile-d"><span class="st st-good" aria-hidden="true">▲</span>0.2% vs target</p></div>
+        <div class="tile"><p class="tile-k">Gross margin</p><p class="tile-v">38.4%</p><p class="tile-d"><span class="st st-good" aria-hidden="true">▲</span>0.6 pts vs target</p></div>
+        <div class="tile"><p class="tile-k">Operating cash flow</p><p class="tile-v">$6.1M</p><p class="tile-d"><span class="st st-warn" aria-hidden="true">▼</span>3.5% vs target</p></div>
+        <div class="tile"><p class="tile-k">Forecast accuracy</p><p class="tile-v">96.1%</p><p class="tile-d"><span class="st st-good" aria-hidden="true">●</span>Above 95% threshold</p></div>
+      </div>
+
+      <div class="dash-body">
+        <div class="panel">
+          <div class="panel-head">
+            <p class="panel-title">Monthly revenue vs target <span>($M)</span></p>
+            <p class="dash-legend"><span><i class="lk lk-actual" aria-hidden="true"></i>Actual</span><span><i class="lk lk-target" aria-hidden="true"></i>Target</span></p>
+          </div>
+          <div class="rev-chart" id="revChart"></div>
+          <table class="sr-only">
+            <caption>Monthly revenue vs target, $M (illustrative)</caption>
+            <thead><tr><th scope="col">Month</th><th scope="col">Actual</th><th scope="col">Target</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Jan</th><td>4.4</td><td>4.5</td></tr><tr><th scope="row">Feb</th><td>4.6</td><td>4.6</td></tr><tr><th scope="row">Mar</th><td>4.9</td><td>4.7</td></tr>
+              <tr><th scope="row">Apr</th><td>4.5</td><td>4.7</td></tr><tr><th scope="row">May</th><td>4.8</td><td>4.8</td></tr><tr><th scope="row">Jun</th><td>5.0</td><td>4.9</td></tr>
+              <tr><th scope="row">Jul</th><td>4.7</td><td>4.9</td></tr><tr><th scope="row">Aug</th><td>5.1</td><td>5.0</td></tr><tr><th scope="row">Sep</th><td>5.3</td><td>5.1</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><p class="panel-title">KPI monitoring</p></div>
+          <table class="kpi">
+            <thead><tr><th scope="col">KPI</th><th scope="col">Actual</th><th scope="col">Target</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><span class="fn">Finance</span>Operating expenses</th><td>$11.9M</td><td>$12.1M</td><td><span class="pill pill-good"><span aria-hidden="true">✓</span>On track</span></td></tr>
+              <tr><th scope="row"><span class="fn">Finance</span>Days sales outstanding</th><td>47</td><td>≤ 45</td><td><span class="pill pill-warn"><span aria-hidden="true">!</span>Watch</span></td></tr>
+              <tr><th scope="row"><span class="fn">Sales</span>Pipeline coverage</th><td>3.2×</td><td>≥ 3.0×</td><td><span class="pill pill-good"><span aria-hidden="true">✓</span>On track</span></td></tr>
+              <tr><th scope="row"><span class="fn">Sales</span>Win rate</th><td>27%</td><td>≥ 30%</td><td><span class="pill pill-warn"><span aria-hidden="true">!</span>Watch</span></td></tr>
+              <tr><th scope="row"><span class="fn">Operations</span>On-time delivery</th><td>96.4%</td><td>≥ 95%</td><td><span class="pill pill-good"><span aria-hidden="true">✓</span>On track</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <figcaption class="dash-foot">
+        <span><i class="dot-ok" aria-hidden="true"></i>Refreshed automatically · data quality checks passed</span>
+        <span>Illustrative example with sample data. Not client data.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="section section-ink" id="how-it-works">
   <div class="wrap">
@@ -429,7 +573,6 @@
   <div class="wrap">
     <div class="xp-head reveal">
       <h2>Companies we have worked with as contractors</h2>
-      <p>Organizations where Alera Prime has worked in a contractor capacity.</p>
     </div>
     <ul class="logo-wall reveal d1">
       <li class="logo-item">
@@ -513,8 +656,15 @@
 
     <div class="contact-card reveal d1">
       <h3>Request an introductory meeting</h3>
-      <p>Send us a message on LinkedIn and we will suggest a convenient time for a 15–20 minute introductory meeting.</p>
-      <a href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener" class="btn btn-accent btn-lg">Message us on LinkedIn <span class="arr" aria-hidden="true">→</span></a>
+      <p>Email us or send a message on LinkedIn, and we will suggest a convenient time for a 15–20 minute introductory meeting.</p>
+      <a class="mail-line" href="mailto:partnerships@aleraprime.com">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="7" width="24" height="18" rx="2"/><path d="M5 9l11 8 11-8"/></svg>
+        <span><span class="mail-k">Email</span><span class="mail-v">partnerships@aleraprime.com</span></span>
+      </a>
+      <div class="contact-actions">
+        <a href="mailto:partnerships@aleraprime.com" class="btn btn-accent btn-lg">Email us <span class="arr" aria-hidden="true">→</span></a>
+        <a href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Message on LinkedIn</a>
+      </div>
       <p class="lbl">Services we can discuss</p>
       <ul class="chips">
         <li>BI &amp; Business Reporting</li><li>Executive Reporting &amp; KPIs</li><li>Data Integration &amp; Modeling</li><li>Reporting Automation</li><li>Advanced Analytics</li><li>Functional Solutions</li><li>Ongoing Services &amp; Support</li>
@@ -557,6 +707,7 @@
       </nav>
       <div class="fcol">
         <h2>Contact</h2>
+        <a href="mailto:partnerships@aleraprime.com">partnerships@aleraprime.com</a>
         <a href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="#contact">Request a meeting</a>
       </div>
@@ -572,5 +723,54 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+<script>
+(function () {
+  var el = document.getElementById('revChart'); if (!el) return;
+  var M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
+  var A = [4.4,4.6,4.9,4.5,4.8,5.0,4.7,5.1,5.3], T = [4.5,4.6,4.7,4.7,4.8,4.9,4.9,5.0,5.1];
+  var NS = 'http://www.w3.org/2000/svg', tip = document.createElement('div');
+  tip.className = 'rc-tip'; tip.setAttribute('aria-hidden', 'true');
+  function n(t, a, p) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
+  function draw() {
+    var W = el.clientWidth, H = el.clientHeight; if (!W) return;
+    el.innerHTML = ''; el.appendChild(tip);
+    var pl = 34, pr = 8, pt = 22, pb = 26, iw = W - pl - pr, ih = H - pt - pb, max = 6;
+    var y = function (v) { return pt + ih - v / max * ih; }, band = iw / M.length, bw = Math.min(24, band * 0.5);
+    var svg = n('svg', { viewBox: '0 0 ' + W + ' ' + H, 'aria-hidden': 'true', focusable: 'false' }, el);
+    [0, 2, 4, 6].forEach(function (v) {
+      n('line', { class: 'rc-grid', x1: pl, x2: W - pr, y1: y(v), y2: y(v) }, svg);
+      n('text', { class: 'rc-axis', x: pl - 8, y: y(v) + 4, 'text-anchor': 'end' }, svg).textContent = v;
+    });
+    var cols = n('g', {}, svg);
+    var pts = [];
+    M.forEach(function (m, i) {
+      var cx = pl + band * i + band / 2, g = n('g', { class: 'rc-col' }, cols);
+      n('rect', { class: 'rc-band', x: cx - band / 2 + 1, y: pt, width: band - 2, height: ih, rx: 4 }, g);
+      var top = y(A[i]), h = y(0) - top, r = 4;
+      n('path', { class: 'rc-bar', d: 'M' + (cx - bw / 2) + ',' + y(0) + 'V' + (top + r) + 'Q' + (cx - bw / 2) + ',' + top + ' ' + (cx - bw / 2 + r) + ',' + top + 'H' + (cx + bw / 2 - r) + 'Q' + (cx + bw / 2) + ',' + top + ' ' + (cx + bw / 2) + ',' + (top + r) + 'V' + y(0) + 'Z' }, g);
+      n('text', { class: 'rc-axis', x: cx, y: H - 6, 'text-anchor': 'middle' }, svg).textContent = W < 360 ? m.charAt(0) : m;
+      pts.push([cx, y(T[i])]);
+      var hit = n('rect', { class: 'rc-hit', x: cx - band / 2, y: pt, width: band, height: ih + pb }, g);
+      function on() {
+        [].forEach.call(cols.children, function (c) { c.classList.remove('on'); }); g.classList.add('on');
+        var d = A[i] - T[i];
+        tip.innerHTML = '<b>' + m + '</b><i style="background:#14A0A8"></i>Actual $' + A[i].toFixed(1) + 'M<br><i style="background:#3D5FC4;border-radius:50%"></i>Target $' + T[i].toFixed(1) + 'M<br>' + (d >= 0 ? '+' : '−') + '$' + Math.abs(d).toFixed(1) + 'M vs target';
+        tip.style.left = Math.max(70, Math.min(W - 70, cx)) + 'px'; tip.style.top = (Math.min(top, y(T[i])) - 10) + 'px'; tip.classList.add('on');
+      }
+      function off() { g.classList.remove('on'); tip.classList.remove('on'); }
+      hit.addEventListener('mouseenter', on); hit.addEventListener('mouseleave', off);
+      hit.addEventListener('touchstart', on, { passive: true });
+    });
+    n('path', { class: 'rc-target', d: 'M' + pts.map(function (p) { return p.join(','); }).join('L') }, svg);
+    pts.forEach(function (p) { n('circle', { class: 'rc-tdot', cx: p[0], cy: p[1], r: 4 }, svg); });
+    var last = pts.length - 1, lx = pl + band * last + band / 2;
+    n('text', { class: 'rc-lbl', x: lx, y: y(A[last]) - 14, 'text-anchor': 'middle' }, svg).textContent = '$' + A[last].toFixed(1) + 'M';
+  }
+  draw(); var t, w = el.clientWidth;
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { if (el.clientWidth !== w) { w = el.clientWidth; draw(); } }, 150); });
+  document.addEventListener('touchstart', function (e) { if (!el.contains(e.target)) tip.classList.remove('on'); }, { passive: true });
+})();
+</script>
+
 </body>
 </html>
