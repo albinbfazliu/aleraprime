@@ -568,19 +568,15 @@ h2 { font-size: clamp(25px, 2.3vw, 33px); }
 }
 
 /* ===== One section per screen (desktop and tablet landscape) ===== */
-@media (min-width: 1100px) and (min-height: 640px) {
+@media (min-width: 1000px) and (min-height: 480px) {
   :root { --maxw: 1320px; }
   .services { gap: 10px; }
   .service h3 { padding-right: 18px; }
-  html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h); }
-  main > section { min-height: calc(100vh - var(--header-h)); min-height: calc(100svh - var(--header-h)); display: flex; flex-direction: column; justify-content: center; padding-block: clamp(20px, 3.2vh, 40px); scroll-snap-align: start; }
-  main > section.hero { min-height: 100vh; min-height: 100svh; padding-top: calc(var(--header-h) + clamp(16px, 3vh, 36px)); padding-bottom: clamp(16px, 3vh, 32px); }
-  .footer { scroll-snap-align: end; }
   .split-head { margin-bottom: clamp(16px, 2.6vh, 30px); }
   .hero-facts { margin-top: clamp(18px, 3.2vh, 36px); }
 }
 /* shorter laptop screens: tighten the tallest sections a little more */
-@media (min-width: 1100px) and (min-height: 640px) and (max-height: 920px) {
+@media (min-width: 1000px) and (min-height: 480px) and (max-height: 920px) {
   .service { padding: 14px 16px 12px; }
   .service .ic { width: 30px; height: 30px; padding: 5px; margin-bottom: 8px; }
   .service p { font-size: 13.5px; line-height: 1.45; }
@@ -600,7 +596,7 @@ h2 { font-size: clamp(25px, 2.3vw, 33px); }
   .meet-item { padding: 8px 14px; }
   .builtin-title { margin: 18px 0 10px; }
 }
-@media (min-width: 1100px) and (min-height: 640px) and (max-height: 800px) {
+@media (min-width: 1000px) and (min-height: 480px) and (max-height: 800px) {
   main > section { padding-block: 12px; }
   .split-head { margin-bottom: 12px; }
   .kicker { margin-bottom: 6px; }
@@ -617,6 +613,13 @@ h2 { font-size: clamp(25px, 2.3vw, 33px); }
   .rev-chart { min-height: 140px; }
   .kpi th, .kpi td { padding: 4px 5px; }
 }
+
+/* ===== Full-screen sections: one section per viewport (enabled by script on desktop) ===== */
+html.fp { scroll-snap-type: y mandatory; scroll-padding-top: var(--hh, 62px); scroll-behavior: auto; }
+html.fp main > section { box-sizing: border-box; height: calc(var(--vh, 100vh) - var(--hh, 62px)); min-height: 0; padding-block: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; }
+html.fp main > section.hero { height: var(--vh, 100vh); padding-top: var(--hh, 62px); padding-bottom: 0; }
+html.fp main > section > .wrap { zoom: var(--fit, 1); flex: none; }
+html.fp .footer { scroll-snap-align: end; }
 </style>
 </head>
 <body>
@@ -1145,5 +1148,65 @@ h2 { font-size: clamp(25px, 2.3vw, 33px); }
 })();
 </script>
 
+<script>
+/* Full-screen section paging (desktop only) */
+(function () {
+  var root = document.documentElement, header = document.getElementById('header');
+  var secs = [].slice.call(document.querySelectorAll('main > section'));
+  var footer = document.querySelector('.footer');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PAD = 28, MINFIT = 0.62, busy = false, acc = 0, accT;
+  function enabled() { return innerWidth >= 1000 && innerHeight >= 480; }
+  function fit() {
+    var on = enabled(); root.classList.toggle('fp', on);
+    if (!on) { secs.forEach(function (s) { s.style.removeProperty('--fit'); }); return; }
+    var hh = header.offsetHeight; root.style.setProperty('--hh', hh + 'px'); root.style.setProperty('--vh', innerHeight + 'px');
+    secs.forEach(function (s) {
+      s.style.setProperty('--fit', 1);
+      var kids = [].filter.call(s.children, function (c) { return c.classList.contains('wrap'); });
+      var natural = kids.reduce(function (t, c) { var cs = getComputedStyle(c); return t + c.getBoundingClientRect().height + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom); }, 0);
+      var avail = innerHeight - hh - PAD * 2;
+      var f = Math.min(1, avail / natural);
+      s.style.setProperty('--fit', Math.max(MINFIT, f).toFixed(4));
+    });
+  }
+  function points() {
+    var hh = header.offsetHeight, max = root.scrollHeight - innerHeight;
+    var p = secs.map(function (s, i) { return i === 0 ? 0 : Math.round(s.offsetTop - hh); });
+    if (footer && max > p[p.length - 1] + 2) p.push(max);
+    return p;
+  }
+  function go(dir) {
+    var p = points(), y = scrollY, i = 0, best = Infinity;
+    p.forEach(function (v, k) { var d = Math.abs(v - y); if (d < best) { best = d; i = k; } });
+    var t = Math.max(0, Math.min(p.length - 1, i + dir));
+    if (t === i && best < 2) return;
+    busy = true; scrollTo({ top: p[t], behavior: reduce ? 'auto' : 'smooth' });
+    setTimeout(function () { busy = false; }, reduce ? 150 : 750);
+  }
+  window.addEventListener('wheel', function (e) {
+    if (!root.classList.contains('fp') || e.ctrlKey || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+    e.preventDefault();
+    if (busy) return;
+    acc += e.deltaY; clearTimeout(accT); accT = setTimeout(function () { acc = 0; }, 200);
+    if (Math.abs(acc) >= 30) { var d = acc > 0 ? 1 : -1; acc = 0; go(d); }
+  }, { passive: false });
+  document.addEventListener('keydown', function (e) {
+    if (!root.classList.contains('fp') || e.altKey || e.ctrlKey || e.metaKey) return;
+    var t = e.target; if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+    var k = e.key, d = 0;
+    if (k === 'PageDown' || k === 'ArrowDown' || (k === ' ' && !e.shiftKey)) d = 1;
+    else if (k === 'PageUp' || k === 'ArrowUp' || (k === ' ' && e.shiftKey)) d = -1;
+    else if (k === 'Home') { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); return; }
+    else if (k === 'End') { e.preventDefault(); scrollTo({ top: root.scrollHeight, behavior: reduce ? 'auto' : 'smooth' }); return; }
+    if (d && !(k === ' ' && t && t.closest && t.closest('summary,button,a'))) { e.preventDefault(); if (!busy) go(d); }
+  });
+  document.querySelectorAll('.faq-item').forEach(function (d) { d.addEventListener('toggle', fit); });
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load', fit);
+  fit();
+})();
+</script>
 </body>
 </html>
