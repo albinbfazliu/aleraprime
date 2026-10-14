@@ -615,11 +615,10 @@ h2 { font-size: clamp(25px, 2.3vw, 33px); }
 }
 
 /* ===== Full-screen sections: one section per viewport (enabled by script on desktop) ===== */
-html.fp { scroll-snap-type: y mandatory; scroll-padding-top: var(--hh, 62px); scroll-behavior: auto; }
-html.fp main > section { box-sizing: border-box; height: calc(var(--vh, 100vh) - var(--hh, 62px)); min-height: 0; padding-block: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; }
+html.fp { scroll-padding-top: var(--hh, 62px); }
+html.fp main > section { box-sizing: border-box; height: calc(var(--vh, 100vh) - var(--hh, 62px)); min-height: 0; padding-block: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
 html.fp main > section.hero { height: var(--vh, 100vh); padding-top: var(--hh, 62px); padding-bottom: 0; }
 html.fp main > section > .wrap { zoom: var(--fit, 1); flex: none; }
-html.fp .footer { scroll-snap-align: end; }
 </style>
 </head>
 <body>
@@ -1149,13 +1148,11 @@ html.fp .footer { scroll-snap-align: end; }
 </script>
 
 <script>
-/* Full-screen section paging (desktop only) */
+/* Full-screen section sizing (desktop only) */
 (function () {
   var root = document.documentElement, header = document.getElementById('header');
   var secs = [].slice.call(document.querySelectorAll('main > section'));
-  var footer = document.querySelector('.footer');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var PAD = 28, MINFIT = 0.62, busy = false, acc = 0, accT;
+  var PAD = 28, MINFIT = 0.62;
   function enabled() { return innerWidth >= 1000 && innerHeight >= 480; }
   function fit() {
     var on = enabled(); root.classList.toggle('fp', on);
@@ -1170,37 +1167,6 @@ html.fp .footer { scroll-snap-align: end; }
       s.style.setProperty('--fit', Math.max(MINFIT, f).toFixed(4));
     });
   }
-  function points() {
-    var hh = header.offsetHeight, max = root.scrollHeight - innerHeight;
-    var p = secs.map(function (s, i) { return i === 0 ? 0 : Math.round(s.offsetTop - hh); });
-    if (footer && max > p[p.length - 1] + 2) p.push(max);
-    return p;
-  }
-  function go(dir) {
-    var p = points(), y = scrollY, i = 0, best = Infinity;
-    p.forEach(function (v, k) { var d = Math.abs(v - y); if (d < best) { best = d; i = k; } });
-    var t = Math.max(0, Math.min(p.length - 1, i + dir));
-    if (t === i && best < 2) return;
-    busy = true; scrollTo({ top: p[t], behavior: reduce ? 'auto' : 'smooth' });
-    setTimeout(function () { busy = false; }, reduce ? 150 : 750);
-  }
-  window.addEventListener('wheel', function (e) {
-    if (!root.classList.contains('fp') || e.ctrlKey || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-    e.preventDefault();
-    if (busy) return;
-    acc += e.deltaY; clearTimeout(accT); accT = setTimeout(function () { acc = 0; }, 200);
-    if (Math.abs(acc) >= 30) { var d = acc > 0 ? 1 : -1; acc = 0; go(d); }
-  }, { passive: false });
-  document.addEventListener('keydown', function (e) {
-    if (!root.classList.contains('fp') || e.altKey || e.ctrlKey || e.metaKey) return;
-    var t = e.target; if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
-    var k = e.key, d = 0;
-    if (k === 'PageDown' || k === 'ArrowDown' || (k === ' ' && !e.shiftKey)) d = 1;
-    else if (k === 'PageUp' || k === 'ArrowUp' || (k === ' ' && e.shiftKey)) d = -1;
-    else if (k === 'Home') { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); return; }
-    else if (k === 'End') { e.preventDefault(); scrollTo({ top: root.scrollHeight, behavior: reduce ? 'auto' : 'smooth' }); return; }
-    if (d && !(k === ' ' && t && t.closest && t.closest('summary,button,a'))) { e.preventDefault(); if (!busy) go(d); }
-  });
   document.querySelectorAll('.faq-item').forEach(function (d) { d.addEventListener('toggle', fit); });
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 120); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
