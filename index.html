@@ -1,684 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aleraprime — Verified B2B Lead Generation</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='30' y='18' width='4' height='64' fill='%231E3A5F'/><text x='44' y='70' font-size='62' fill='%231E3A5F' font-family='serif'>A</text></svg>" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-/* ============================================================
-   ALERAPRIME — Design System v2  "Institutional Editorial"
-   Navy + warm parchment + restrained brass · B2B lead generation
-   ============================================================ */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aleraprime — Data &amp; Business Intelligence Consulting</title>
+<meta name="description" content="Aleraprime is a data and business intelligence consultancy for companies in the United States and Europe. Data strategy, cloud data platforms, Power BI and Tableau dashboards, analytics and data governance.">
+<link rel="canonical" href="https://aleraprime.com/">
+<meta name="theme-color" content="#0B1B2B">
 
-:root {
-  /* Surfaces */
-  --paper:    #f7f4ee;   /* warm parchment */
-  --paper-2:  #efeae0;   /* deeper parchment */
-  --white:    #fffdfa;   /* warm white */
-  --navy:     #13243c;   /* deep navy */
-  --navy-2:   #1e3a5f;   /* brand navy */
-  --navy-3:   #294a72;
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aleraprime">
+<meta property="og:title" content="Aleraprime — Data &amp; Business Intelligence Consulting">
+<meta property="og:description" content="Turn scattered data into decisions you can stand behind. Data strategy, engineering, BI dashboards and governance for companies in the US and Europe.">
+<meta property="og:url" content="https://aleraprime.com/">
+<meta property="og:image" content="https://aleraprime.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
-  /* Ink */
-  --ink:      #1b2230;
-  --ink-soft: #5d6473;
-  --ink-faint:#9a9c98;
-  --on-navy:  #eef1f6;
-  --on-navy-soft: #9fb0c6;
-  --on-navy-faint: rgba(255,255,255,.42);
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/styles.css">
 
-  /* Brass accent (used sparingly) */
-  --brass:    #9c7c4a;
-  --brass-soft:#c2a06a;
-
-  /* Lines */
-  --line:     #e3ddd0;   /* warm hairline on paper */
-  --line-2:   #d7cfbf;
-  --line-navy: rgba(255,255,255,.13);
-
-  /* Type */
-  --serif: "Spectral", Georgia, "Times New Roman", serif;
-  --sans:  "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-  /* Metrics */
-  --maxw: 1240px;
-  --gut: clamp(22px, 5.5vw, 72px);
-  --sect: clamp(44px, 5vw, 76px);
-  --shadow: 0 30px 70px -40px rgba(19,36,60,.45), 0 8px 24px -14px rgba(19,36,60,.18);
-  --ease: cubic-bezier(.22,.61,.36,1);
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Aleraprime",
+  "url": "https://aleraprime.com/",
+  "logo": "https://aleraprime.com/assets/img/favicon.svg",
+  "image": "https://aleraprime.com/assets/img/og-image.png",
+  "email": "partnerships@aleraprime.com",
+  "description": "Data and business intelligence consultancy: data strategy, data engineering, cloud data platforms, BI dashboards, analytics and data governance.",
+  "areaServed": ["United States", "Europe"],
+  "sameAs": ["https://www.linkedin.com/company/126293967/"],
+  "knowsAbout": ["Business intelligence", "Data engineering", "Data warehousing", "Power BI", "Tableau", "Looker", "Snowflake", "Databricks", "BigQuery", "dbt", "Data governance", "Forecasting"]
 }
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce){ html { scroll-behavior:auto; } }
-
-body {
-  margin: 0;
-  font-family: var(--sans);
-  background: var(--white);
-  color: var(--ink);
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-h1,h2,h3,h4 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.08; letter-spacing: -.01em; color: var(--ink); }
-p { margin: 0; }
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-
-.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
-.section { padding-block: var(--sect); }
-.bg-paper { background: var(--paper); }
-.bg-paper2 { background: var(--paper-2); }
-
-/* ---------- Eyebrow ---------- */
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 13px;
-  font-family: var(--sans); font-size: 12px; font-weight: 600;
-  letter-spacing: .2em; text-transform: uppercase; color: var(--brass);
-}
-.eyebrow::before { content:""; width: 26px; height: 1px; background: var(--brass); }
-.eyebrow.center { justify-content: center; }
-.on-navy .eyebrow { color: var(--brass-soft); }
-.on-navy .eyebrow::before { background: var(--brass-soft); }
-
-/* ---------- Type scale ---------- */
-.display { font-size: clamp(32px, 4.2vw, 54px); line-height: 1.08; letter-spacing: -.022em; font-weight: 300; }
-.h1 { font-size: clamp(30px, 3.8vw, 48px); font-weight: 300; letter-spacing: -.018em; }
-.h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 300; letter-spacing: -.015em; }
-.h3 { font-size: clamp(19px, 1.8vw, 23px); }
-.lead { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.65; color: var(--ink-soft); font-weight: 400; }
-.serif-it { font-family: var(--serif); font-style: italic; }
-em.accent { font-style: italic; color: var(--navy-2); }
-.muted { color: var(--ink-soft); }
-
-/* ---------- Buttons ---------- */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  font-family: var(--sans); font-size: 12px; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: 13px 26px; border: 1px solid transparent; cursor: pointer;
-  white-space: nowrap; transition: all .25s var(--ease);
-}
-.btn .arr { transition: transform .3s var(--ease); }
-.btn:hover .arr { transform: translateX(4px); }
-.btn-primary { background: var(--navy-2); color: #fff; }
-.btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
-.btn-ghost { background: transparent; color: var(--navy-2); border-color: var(--line-2); }
-.btn-ghost:hover { border-color: var(--navy-2); background: rgba(30,58,95,.04); }
-.btn-light { background: #fff; color: var(--navy-2); }
-.btn-light:hover { transform: translateY(-1px); }
-.btn-outline-light { background: transparent; color: #fff; border-color: var(--on-navy-faint); }
-.btn-outline-light:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
-
-.textlink { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--navy-2); }
-.textlink .arr { transition: transform .3s var(--ease); }
-.textlink:hover .arr { transform: translateX(4px); }
-
-/* ---------- Wordmark ---------- */
-.wordmark { display: inline-flex; align-items: center; gap: 13px; }
-.wordmark .bar { width: 2px; height: 25px; background: var(--navy-2); }
-.wordmark .name { font-family: var(--sans); font-weight: 400; font-size: 17px; letter-spacing: .32em; text-transform: uppercase; color: var(--navy-2); }
-.wordmark.light .bar { background: rgba(255,255,255,.55); }
-.wordmark.light .name { color: #fff; }
-
-/* ============================================================
-   HEADER
-   ============================================================ */
-.header { position: fixed; inset: 0 0 auto 0; z-index: 100; transition: background .35s var(--ease), border-color .35s var(--ease); border-bottom: 1px solid transparent; }
-.header.scrolled { background: rgba(255,253,250,.9); backdrop-filter: saturate(140%) blur(16px); -webkit-backdrop-filter: saturate(140%) blur(16px); border-bottom-color: var(--line); }
-.header-in { display: flex; align-items: center; justify-content: space-between; height: 78px; transition: height .35s var(--ease); }
-.header.scrolled .header-in { height: 66px; }
-.nav { display: flex; align-items: center; gap: 36px; }
-.nav a { font-size: 14px; color: var(--ink-soft); transition: color .2s; }
-.nav a:hover { color: var(--navy-2); }
-.nav a.nav-cta { display: none; }
-.header-cta { display: flex; align-items: center; gap: 20px; }
-.menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
-.menu-btn span { width: 22px; height: 1.5px; background: var(--navy-2); transition: transform .3s, opacity .3s; }
-.menu-btn.open span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
-.menu-btn.open span:nth-child(2){ opacity: 0; }
-.menu-btn.open span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
-
-@media (max-width: 940px){
-  .nav { position: fixed; inset: 78px 0 auto 0; flex-direction: column; gap: 0; align-items: stretch;
-         background: var(--white); border-bottom: 1px solid var(--line); padding: 8px var(--gut) 24px; display: none;
-         max-height: calc(100vh - 78px); overflow-y: auto; box-shadow: var(--shadow); }
-  .nav.open { display: flex; }
-  .nav a { padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
-  .nav a.nav-cta { display: block; margin-top: 16px; border-bottom: 0; background: var(--navy-2); color: #fff; text-align: center;
-                   padding: 15px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-  .menu-btn { display: flex; }
-  .header-cta .btn { display: none; }
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero { padding-top: clamp(96px, 10vw, 124px); padding-bottom: clamp(36px, 4vw, 56px); position: relative; overflow: hidden; background: var(--white); }
-.hero-grid { display: block; max-width: 980px; margin: 0 auto; text-align: center; position: relative; }
-.hero-copy { max-width: 880px; margin: 0 auto; }
-.hero h1 { margin: 16px auto 18px; max-width: none; text-wrap: balance; }
-.hero .lead { max-width: 56ch; margin: 0 auto 26px; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: center; }
-.hero-meta { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; gap: clamp(28px,4.5vw,56px); flex-wrap: wrap; justify-content: center; }
-.hero-meta .hm { text-align: center; }
-.hero-meta .hm .n { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--navy-2); line-height: 1; }
-.hero-meta .hm .k { font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
-
-@media (max-width: 940px){
-  .hero-grid { grid-template-columns: 1fr; }
-}
-
-/* verified contact record card */
-.record {
-  background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow);
-  position: relative;
-}
-.record::before { content:""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--navy-2); }
-.record-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--line); }
-.record-head .t { font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
-.record-head .badge { font-size: 11px; font-weight: 600; letter-spacing: .04em; color: #2f7a4f; display: inline-flex; align-items: center; gap: 7px; }
-.record-head .badge::before { content:""; width: 7px; height: 7px; border-radius: 50%; background: #36915c; box-shadow: 0 0 0 3px rgba(54,145,92,.16); }
-.record-id { padding: 24px 24px 8px; }
-.record-id .nm { font-family: var(--serif); font-size: 26px; font-weight: 400; color: var(--ink); line-height: 1.1; }
-.record-id .rl { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
-.record-fields { padding: 14px 24px 24px; display: grid; gap: 0; }
-.rfield { display: grid; grid-template-columns: 116px 1fr auto; gap: 14px; align-items: center; padding: 13px 0; border-top: 1px solid var(--line); }
-.rfield .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
-.rfield .val { font-size: 14.5px; color: var(--ink); }
-.rfield .chk { width: 17px; height: 17px; color: #36915c; }
-.record-foot { padding: 16px 24px; background: var(--paper); border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
-.record-foot .mt { font-size: 12.5px; color: var(--ink-soft); }
-.record-foot .mt b { color: var(--ink); font-weight: 600; }
-
-/* ============================================================
-   SECTION HEAD
-   ============================================================ */
-.sec-head { max-width: 760px; margin-bottom: clamp(28px, 3.5vw, 44px); }
-.sec-head.center { margin-inline: auto; text-align: center; }
-.sec-head .eyebrow { margin-bottom: 14px; }
-.sec-head h2 { margin-bottom: 14px; }
-
-/* ---------- Trusted strip ---------- */
-.trusted { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); }
-.trusted-in { display: flex; align-items: center; gap: clamp(24px,4vw,56px); padding-block: 22px; flex-wrap: wrap; }
-.trusted .lbl { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); white-space: nowrap; }
-.trusted .items { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(22px,3.5vw,48px); }
-.trusted .items span { font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: .04em; color: var(--ink-soft); }
-
-/* ---------- Services grid ---------- */
-.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.svc { background: var(--white); padding: 26px 24px; min-height: 168px; display: flex; flex-direction: column; transition: background .3s var(--ease); }
-.svc:hover { background: var(--paper); }
-.svc .ix { font-family: var(--serif); font-size: 14px; color: var(--brass); letter-spacing: .1em; margin-bottom: 16px; }
-.svc h3 { font-size: 20px; margin-bottom: 9px; }
-.svc p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; }
-.svc .more { margin-top: auto; padding-top: 20px; opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
-.svc:hover .more { opacity: 1; transform: none; }
-@media (max-width: 880px){ .svc-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 560px){ .svc-grid { grid-template-columns: 1fr; } .svc { min-height: 0; } }
-
-/* ---------- Approach ---------- */
-.approach-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px,4vw,72px); align-items: center; }
-.steps { display: grid; }
-.step { display: grid; grid-template-columns: 50px 1fr; gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); }
-.step:last-child { border-bottom: 1px solid var(--line); }
-.step .sn { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--line-2); line-height: 1; }
-.step h4 { font-family: var(--serif); font-size: 21px; font-weight: 400; margin-bottom: 8px; }
-.step p { font-size: 14.5px; color: var(--ink-soft); }
-.approach-visual { position: relative; aspect-ratio: 4/5; }
-@media (max-width: 880px){ .approach-grid { grid-template-columns: 1fr; gap: 40px; } .approach-visual { aspect-ratio: auto; min-height: 0; } }
-
-/* stat panel (replaces approach photo) */
-.statpanel { position: absolute; inset: 0; background: var(--navy); color: var(--on-navy); display: flex; flex-direction: column; padding: clamp(26px,2.6vw,36px); box-shadow: var(--shadow); }
-.statpanel::before { content:""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--brass); }
-.statpanel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--line-navy); }
-.sp-eyebrow { font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--brass-soft); }
-.sp-period { font-size: 12px; color: var(--on-navy-faint); letter-spacing: .04em; }
-.statpanel-bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: clamp(18px,2vw,26px); padding: 26px 0; }
-.sp-row { display: grid; gap: 11px; }
-.sp-top { display: flex; align-items: baseline; justify-content: space-between; }
-.sp-lab { font-size: 13.5px; color: var(--on-navy-soft); }
-.sp-val { font-family: var(--serif); font-size: 22px; font-weight: 300; color: #fff; line-height: 1; }
-.sp-track { height: 7px; background: rgba(255,255,255,.13); border-radius: 100px; overflow: hidden; }
-.sp-fill { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--brass) 0%, var(--brass-soft) 100%); border-radius: 100px; transition: width 1.1s var(--ease); }
-.reveal.in .sp-fill { width: var(--w); }
-.statpanel-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-navy); border: 1px solid var(--line-navy); }
-.spf { background: var(--navy); padding: 18px 20px; }
-.spf-n { display: block; font-family: var(--serif); font-size: 30px; font-weight: 300; color: #fff; line-height: 1; }
-.spf-k { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--on-navy-soft); margin-top: 8px; display: block; }
-@media (max-width: 880px){ .statpanel { position: static; } }
-
-/* image placeholder */
-.ph { position: relative; overflow: hidden; background-color: var(--paper-2);
-  background-image: repeating-linear-gradient(135deg, rgba(30,58,95,.06) 0 1px, transparent 1px 12px);
-  border: 1px solid var(--line); display: grid; place-items: center; }
-.ph .lab { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11.5px; letter-spacing: .04em; color: var(--ink-faint); background: rgba(255,253,250,.78); border: 1px solid var(--line); padding: 6px 12px; }
-
-/* ---------- Metrics band ---------- */
-.metrics { background: var(--navy); }
-.metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); }
-.metric { padding: 0 clamp(20px,3vw,44px); border-left: 1px solid var(--line-navy); }
-.metric:first-child { padding-left: 0; border-left: 0; }
-.metric .n { font-family: var(--serif); font-size: clamp(46px,5.2vw,66px); font-weight: 300; color: #fff; line-height: 1; }
-.metric .n .u { color: var(--brass-soft); }
-.metric .k { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--on-navy-soft); margin-top: 14px; }
-@media (max-width: 760px){ .metrics-grid { grid-template-columns: 1fr 1fr; gap: 40px 0; } .metric { border-left: 0; padding: 0 clamp(20px,3vw,44px); } .metric:nth-child(odd){ padding-left: 0; } }
-
-/* ---------- Values ---------- */
-.val-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.val { background: var(--white); padding: 26px 26px; }
-.val .vn { font-family: var(--serif); font-size: 13px; letter-spacing: .12em; color: var(--brass); margin-bottom: 11px; }
-.val h3 { font-size: 20px; margin-bottom: 8px; }
-.val p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.7; }
-@media (max-width: 720px){ .val-grid { grid-template-columns: 1fr; } }
-
-/* ---------- Audiences ---------- */
-.aud-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.aud { background: var(--paper); padding: 26px 24px; transition: background .3s var(--ease); }
-.aud:hover { background: var(--white); }
-.aud .big { font-family: var(--serif); font-size: clamp(40px,4.4vw,54px); font-weight: 300; color: var(--navy-2); line-height: 1; }
-.aud .lab { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--ink); margin: 14px 0 10px; }
-.aud p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
-@media (max-width: 880px){ .aud-grid { grid-template-columns: repeat(2,1fr); } }
-@media (max-width: 540px){ .aud-grid { grid-template-columns: 1fr; } }
-
-/* ============================================================
-   BILLBOARD
-   ============================================================ */
-.billboard { background: var(--navy); position: relative; overflow: hidden; text-align: center; padding-block: clamp(52px,6vw,84px); }
-.billboard::before { content: '\201C'; position: absolute; top: -64px; left: 50%; transform: translateX(-50%); font-family: var(--serif); font-size: 360px; line-height: 1; color: rgba(255,255,255,.05); pointer-events: none; }
-.billboard-in { position: relative; max-width: 1000px; margin: 0 auto; }
-.billboard .lbl { display: inline-flex; align-items: center; gap: 14px; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--on-navy-faint); margin-bottom: 28px; }
-.billboard .lbl::before, .billboard .lbl::after { content:""; width: 28px; height: 1px; background: rgba(255,255,255,.32); }
-.billboard q { quotes: none; }
-.billboard-quote { font-family: var(--serif); font-size: clamp(32px,4.8vw,64px); font-weight: 300; line-height: 1.1; color: #fff; letter-spacing: -.012em; }
-.billboard-quote em { font-style: italic; color: var(--brass-soft); }
-.billboard-sub { font-size: 15px; color: var(--on-navy-soft); max-width: 520px; margin: 26px auto 0; line-height: 1.75; }
-.billboard-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 32px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #fff; border: 1px solid var(--on-navy-faint); padding: 13px 26px; white-space: nowrap; transition: background .25s var(--ease); }
-.billboard-link:hover { background: rgba(255,255,255,.08); }
-@media (max-width: 600px){ .billboard::before { font-size: 220px; top: -36px; } }
-
-/* ---------- Testimonials ---------- */
-.rev-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-.rev { background: var(--white); border: 1px solid var(--line); padding: 22px 20px; display: flex; flex-direction: column; gap: 13px; transition: border-color .25s, box-shadow .25s; }
-.rev:hover { border-color: var(--line-2); box-shadow: var(--shadow); }
-.rev .stars { display: flex; gap: 3px; color: var(--brass); }
-.rev .stars svg { width: 14px; height: 14px; }
-.rev .q { font-family: var(--serif); font-size: 16px; font-style: italic; font-weight: 400; line-height: 1.5; color: var(--ink); flex: 1; }
-.rev .who { padding-top: 13px; border-top: 1px solid var(--line); }
-.rev .who .nm { font-size: 14px; font-weight: 600; color: var(--ink); }
-.rev .who .rl { font-size: 12.5px; color: var(--ink-soft); }
-@media (max-width: 980px){ .rev-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px){ .rev-grid { grid-template-columns: 1fr; } }
-
-/* ---------- FAQ ---------- */
-.faq-wrap { max-width: 820px; }
-.faq-item { border-top: 1px solid var(--line); }
-.faq-item:last-child { border-bottom: 1px solid var(--line); }
-.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 17px 0; cursor: pointer; list-style: none; }
-.faq-q::-webkit-details-marker { display: none; }
-.faq-q span { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); }
-.faq-ic { position: relative; width: 16px; height: 16px; flex: none; }
-.faq-ic::before, .faq-ic::after { content:""; position: absolute; background: var(--navy-2); transition: transform .3s var(--ease), opacity .3s; }
-.faq-ic::before { top: 50%; left: 0; width: 16px; height: 1.5px; transform: translateY(-50%); }
-.faq-ic::after { left: 50%; top: 0; width: 1.5px; height: 16px; transform: translateX(-50%); }
-.faq-item[open] .faq-ic::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
-.faq-a { font-size: 15px; color: var(--ink-soft); line-height: 1.7; padding: 0 48px 22px 0; margin-top: -4px; }
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px,5vw,84px); align-items: start; }
-.contact-aside h2 { margin-bottom: 22px; }
-.contact-points { margin-top: 26px; display: grid; gap: 14px; }
-.cpt { display: grid; gap: 5px; padding-top: 14px; border-top: 1px solid var(--line); }
-.cpt .k { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
-.cpt .v { font-size: 16px; color: var(--ink); }
-.form-card { background: var(--white); border: 1px solid var(--line); padding: clamp(28px,3.2vw,44px); box-shadow: var(--shadow); }
-.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.fg { display: grid; gap: 8px; margin-bottom: 18px; }
-.fg label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
-.fg input, .fg select, .fg textarea {
-  font-family: var(--sans); font-size: 16px; color: var(--ink); width: 100%;
-  padding: 14px 15px; border: 1px solid var(--line-2); background: var(--paper);
-  outline: none; transition: border-color .2s, background .2s; -webkit-appearance: none; border-radius: 0;
-}
-.fg input::placeholder, .fg textarea::placeholder { color: var(--ink-faint); }
-.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--navy-2); background: var(--white); }
-.fg textarea { resize: vertical; min-height: 118px; }
-.form-foot { display: flex; align-items: center; gap: 18px; margin-top: 6px; flex-wrap: wrap; }
-.fineprint { font-size: 12px; color: var(--ink-faint); line-height: 1.5; flex: 1; min-width: 200px; }
-.form-ok { display: none; padding: 18px 20px; background: #edf5ee; border: 1px solid #bcdcc5; color: #2f6b45; font-size: 14px; margin-bottom: 20px; }
-@media (max-width: 820px){ .contact-grid { grid-template-columns: 1fr; } .frow { grid-template-columns: 1fr; } }
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer { background: var(--navy); color: var(--on-navy-soft); padding-top: clamp(44px,5vw,64px); }
-.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--line-navy); }
-.footer .blurb { margin-top: 22px; font-size: 14.5px; max-width: 30ch; line-height: 1.7; color: var(--on-navy-soft); }
-.footer .li { margin-top: 24px; display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #fff; border: 1px solid var(--line-navy); padding: 11px 18px; transition: background .25s; }
-.footer .li:hover { background: rgba(255,255,255,.07); }
-.footer .li svg { width: 17px; height: 17px; }
-.fcol h4 { font-family: var(--sans); font-weight: 600; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #fff; margin-bottom: 20px; }
-.fcol a { display: block; font-size: 14.5px; color: var(--on-navy-soft); padding: 7px 0; transition: color .2s; }
-.fcol a:hover { color: #fff; }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; gap: 18px; flex-wrap: wrap; }
-.footer-bottom .cp { font-size: 13px; color: var(--on-navy-faint); }
-.footer-bottom .legal { display: flex; gap: 24px; }
-.footer-bottom .legal a { font-size: 13px; color: var(--on-navy-soft); }
-.footer-bottom .legal a:hover { color: #fff; }
-@media (max-width: 860px){ .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; } }
-@media (max-width: 520px){ .footer-top { grid-template-columns: 1fr; } }
-
-/* ---------- Reveal ---------- */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
-.reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; }
-.reveal.d3 { transition-delay: .24s; } .reveal.d4 { transition-delay: .32s; }
-@media (prefers-reduced-motion: reduce){ .reveal { opacity: 1; transform: none; transition: none; } }
-
-::selection { background: var(--navy-2); color: #fff; }
-
-</style>
+</script>
+<script>document.documentElement.classList.add('js');</script>
 </head>
-<body id="top">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ===================== HEADER ===================== -->
-<header class="header">
+<header class="header" id="header">
   <div class="wrap header-in">
-    <a href="#top" class="wordmark" aria-label="Aleraprime home">
-      <span class="bar"></span><span class="name">Aleraprime</span>
+    <a href="#top" class="brand" aria-label="Aleraprime, back to top">
+      <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="3" width="2.4" height="22" fill="currentColor"/><path d="M10 22 L16.5 6 L23 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter"/><path class="brand-bar" d="M12.6 16 H20.4" stroke-width="2.4"/></svg>
+      <span class="brand-name">Aleraprime</span>
     </a>
-    <nav class="nav" id="nav">
-      <a href="#about">About</a>
+    <nav class="nav" id="nav" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#approach">Approach</a>
-      <a href="#audiences">Audiences</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#process">Process</a>
+      <a href="#engagements">Engagements</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="nav-cta">Work with us</a>
+      <a href="#contact" class="btn btn-primary nav-cta">Book a consultation</a>
     </nav>
-    <div class="header-cta">
-      <a href="#contact" class="btn btn-primary">Work with us</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
+    <a href="#contact" class="btn btn-primary header-cta">Book a consultation</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
   </div>
 </header>
 
-<main>
+<main id="main">
 
-<!-- ===================== HERO ===================== -->
-<section class="hero">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow reveal">B2B Lead Generation</span>
-      <h1 class="display reveal d1">Connecting businesses with <em class="accent">qualified</em> decision-makers.</h1>
-      <p class="lead reveal d2">Aleraprime supplies a reliable, scalable flow of high-intent B2B leads — every contact consent-verified and ready for outreach, so your team can focus entirely on closing.</p>
+      <p class="kicker kicker-light reveal">Data &amp; business intelligence consulting · US &amp; Europe</p>
+      <h1 class="reveal d1">Turn scattered data into decisions you can <em>stand behind.</em></h1>
+      <p class="hero-lead reveal d2">Aleraprime designs data platforms, builds dashboards and sets up the governance that makes reporting reliable — so finance, sales and operations work from the same numbers.</p>
       <div class="hero-actions reveal d3">
-        <a href="#contact" class="btn btn-primary">Work with us <span class="arr">→</span></a>
-        <a href="#services" class="btn btn-ghost">Request a free sample</a>
+        <a href="#contact" class="btn btn-accent btn-lg">Book a free consultation <span class="arr" aria-hidden="true">→</span></a>
+        <a href="#services" class="btn btn-ghost-light btn-lg">Explore our services</a>
       </div>
-      <div class="hero-meta reveal d3">
-        <div class="hm"><div class="n"><span data-count="5" data-suffix="M+">0</span></div><div class="k">Verified contacts</div></div>
-        <div class="hm"><div class="n"><span data-count="100" data-suffix="%">0</span></div><div class="k">Consent verified</div></div>
-        <div class="hm"><div class="n"><span data-count="48" data-suffix="h">0</span></div><div class="k">First delivery</div></div>
-      </div>
+      <p class="hero-note reveal d3">A 30-minute call with a senior consultant. No obligation.</p>
     </div>
 
-    <div class="hero-visual reveal d2" style="display:none;"></div>
+    <figure class="plate reveal d2" aria-labelledby="plateCap">
+      <div class="plate-head">
+        <div>
+          <span class="plate-eyebrow">Executive overview</span>
+          <span class="plate-title">Monthly revenue, actual and forecast</span>
+        </div>
+        <span class="plate-legend"><i class="lg lg-actual"></i>Actual <i class="lg lg-fc"></i>Forecast</span>
+      </div>
+      <div class="plate-kpis" aria-hidden="true">
+        <div><span class="k">Revenue YTD</span><span class="v">$48.2M</span><span class="d up">+12.4%</span></div>
+        <div><span class="k">Gross margin</span><span class="v">41.8%</span><span class="d up">+2.1 pts</span></div>
+        <div><span class="k">Q4 forecast</span><span class="v">$19.4M</span><span class="d">±5% range</span></div>
+      </div>
+      <div class="plate-chart" id="heroChart" role="img" aria-label="Illustrative chart: scattered data points resolve into a monthly revenue trend with a forecast band for the final quarter."></div>
+      <figcaption id="plateCap" class="plate-cap">Illustrative example of an executive dashboard view</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <ul class="hero-facts reveal d3">
+      <li><strong>Senior-led</strong><span>The consultants on the first call do the work</span></li>
+      <li><strong>Vendor-neutral</strong><span>We don’t resell licenses</span></li>
+      <li><strong>Fixed-price start</strong><span>An assessment and roadmap in 2–3 weeks</span></li>
+      <li><strong>US &amp; EU hours</strong><span>Working time that overlaps with yours</span></li>
+    </ul>
   </div>
 </section>
 
-<!-- ===================== TRUSTED ===================== -->
-<div class="trusted">
-  <div class="wrap trusted-in">
-    <span class="lbl">Trusted by teams across</span>
-    <div class="items">
-      <span>Financial Services</span><span>SaaS</span><span>Insurance</span>
-      <span>Consulting</span><span>Real Estate</span><span>Healthcare</span>
+<!-- PLATFORMS -->
+<section class="platforms" aria-labelledby="platformsLbl">
+  <div class="wrap platforms-in">
+    <p id="platformsLbl" class="platforms-lbl">We work with the platforms you already use</p>
+    <ul class="platforms-list">
+      <li>Power BI</li><li>Tableau</li><li>Looker</li><li>Microsoft Fabric</li><li>Snowflake</li><li>Databricks</li><li>BigQuery</li><li>dbt</li><li>Azure</li><li>AWS</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">The challenge</p>
+        <h2 class="reveal d1">Most companies don’t lack data. They lack data they can rely on.</h2>
+      </div>
+      <p class="intro reveal d2">We fix the foundations first and build the reporting on top, so the answer to “what was revenue last quarter?” is the same whoever asks.</p>
+    </div>
+    <div class="symptoms">
+      <div class="symptom reveal">
+        <span class="symptom-n">01</span>
+        <h3>The numbers don’t match</h3>
+        <p>Finance, sales and operations report different figures for the same metric, and meetings turn into debates about whose spreadsheet is right.</p>
+      </div>
+      <div class="symptom reveal d1">
+        <span class="symptom-n">02</span>
+        <h3>Reporting eats the week</h3>
+        <p>Analysts spend days exporting, cleaning and pasting data together instead of analyzing it — and the report is out of date by the time it lands.</p>
+      </div>
+      <div class="symptom reveal d2">
+        <span class="symptom-n">03</span>
+        <h3>Dashboards nobody opens</h3>
+        <p>Reports were built around what the tool could show, not the questions leadership actually asks. Trust drops, and people go back to Excel.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ===================== ABOUT ===================== -->
-<section class="section bg-paper" id="about">
-  <div class="wrap approach-grid">
+<!-- SERVICES -->
+<section class="section section-mist" id="services">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">Services</p>
+        <h2 class="reveal d1">Services across the full data lifecycle</h2>
+      </div>
+      <p class="intro reveal d2">Engage us for one piece or the whole stack — from deciding what to measure to the dashboards your teams use every day.</p>
+    </div>
+
+    <div class="services">
+      <article class="service reveal">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26h22M8 26V15M14 26V9M20 26v-7M26 26V5"/></svg>
+        <h3>Data strategy &amp; roadmap</h3>
+        <p>We assess your current data landscape, agree the metrics that matter and produce a prioritized roadmap with costs, quick wins and a target architecture.</p>
+        <ul class="deliv"><li>Current-state assessment</li><li>KPI framework</li><li>12-month roadmap</li></ul>
+      </article>
+      <article class="service reveal d1">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><circle cx="6" cy="8" r="2.5"/><circle cx="6" cy="24" r="2.5"/><circle cx="26" cy="16" r="3"/><path d="M8.5 8C16 8 15 16 23 16M8.5 24C16 24 15 16 23 16"/></svg>
+        <h3>Data engineering &amp; integration</h3>
+        <p>Reliable pipelines that bring data from your CRM, ERP, finance and product systems into one place — tested, documented and monitored.</p>
+        <ul class="deliv"><li>Automated ELT pipelines</li><li>Data quality tests</li><li>Monitoring and alerting</li></ul>
+      </article>
+      <article class="service reveal d2">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="7" rx="10" ry="3.5"/><path d="M6 7v18c0 1.9 4.5 3.5 10 3.5s10-1.6 10-3.5V7M6 16c0 1.9 4.5 3.5 10 3.5s10-1.6 10-3.5"/></svg>
+        <h3>Cloud data platforms</h3>
+        <p>Design and implementation of a modern warehouse or lakehouse on Snowflake, BigQuery, Databricks or Microsoft Fabric — sized to your needs and your budget.</p>
+        <ul class="deliv"><li>Platform architecture</li><li>Data modeling</li><li>Cost controls</li></ul>
+      </article>
+      <article class="service reveal">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="5" width="24" height="19" rx="1.5"/><path d="M11 28h10M16 24v4M9 19l5-5 3 3 6-6"/></svg>
+        <h3>BI &amp; dashboard development</h3>
+        <p>Executive, financial and operational dashboards in Power BI, Tableau or Looker, designed around the decisions people make with them.</p>
+        <ul class="deliv"><li>Semantic model</li><li>Dashboard suite</li><li>Row-level security</li></ul>
+      </article>
+      <article class="service reveal d1">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24c5 0 6-9 11-9s5 5 8 5" /><path d="M23 20c2 0 3-3 5-7" stroke-dasharray="2 2.5"/><path d="M4 28h24"/></svg>
+        <h3>Advanced analytics &amp; forecasting</h3>
+        <p>Forecasting, customer segmentation, churn and profitability analysis that go beyond describing what already happened.</p>
+        <ul class="deliv"><li>Forecast models</li><li>Analysis reports</li><li>Production handover</li></ul>
+      </article>
+      <article class="service reveal d2">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l10 4v8c0 7-4.5 11.5-10 14C10.5 26.5 6 22 6 15V7z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg>
+        <h3>Data governance &amp; quality</h3>
+        <p>Clear ownership, shared definitions and access rules, with GDPR and CCPA requirements built into how data is stored and shared.</p>
+        <ul class="deliv"><li>Business glossary</li><li>Access policies</li><li>Quality scorecards</li></ul>
+      </article>
+    </div>
+
+    <div class="services-foot reveal">
+      <p>Not sure which service fits? Most clients start with a fixed-price assessment.</p>
+      <a href="#engagements" class="textlink">See ways to work with us <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="section section-ink" id="outcomes">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker kicker-light reveal">Business value</p>
+        <h2 class="reveal d1">What changes when your data works</h2>
+      </div>
+      <p class="intro reveal d2">The value of BI isn’t the dashboard. It’s the hours returned to your team and the confidence behind every decision.</p>
+    </div>
+
+    <div class="ba reveal" role="table" aria-label="Before and after working with Aleraprime">
+      <div class="ba-row ba-headrow" role="row">
+        <span role="columnheader" class="ba-topic-h"><span class="sr-only">Area</span></span>
+        <span role="columnheader">Before</span>
+        <span role="columnheader" class="ba-after-h">After</span>
+      </div>
+      <div class="ba-row" role="row">
+        <span role="rowheader" class="ba-topic">Month-end reporting</span>
+        <span role="cell" class="ba-before"><span class="ba-lbl" aria-hidden="true">Before</span>Assembled by hand from exports over several days</span>
+        <span role="cell" class="ba-after"><span class="ba-lbl" aria-hidden="true">After</span>Refreshed automatically from a single source</span>
+      </div>
+      <div class="ba-row" role="row">
+        <span role="rowheader" class="ba-topic">Metric definitions</span>
+        <span role="cell" class="ba-before"><span class="ba-lbl" aria-hidden="true">Before</span>Each team calculates revenue its own way</span>
+        <span role="cell" class="ba-after"><span class="ba-lbl" aria-hidden="true">After</span>One agreed definition, documented and reused</span>
+      </div>
+      <div class="ba-row" role="row">
+        <span role="rowheader" class="ba-topic">New questions</span>
+        <span role="cell" class="ba-before"><span class="ba-lbl" aria-hidden="true">Before</span>A ticket to IT and a two-week wait</span>
+        <span role="cell" class="ba-after"><span class="ba-lbl" aria-hidden="true">After</span>Self-service exploration on trusted data</span>
+      </div>
+      <div class="ba-row" role="row">
+        <span role="rowheader" class="ba-topic">Access &amp; compliance</span>
+        <span role="cell" class="ba-before"><span class="ba-lbl" aria-hidden="true">Before</span>Spreadsheets emailed around the company</span>
+        <span role="cell" class="ba-after"><span class="ba-lbl" aria-hidden="true">After</span>Role-based access with an audit trail</span>
+      </div>
+      <div class="ba-row" role="row">
+        <span role="rowheader" class="ba-topic">Planning</span>
+        <span role="cell" class="ba-before"><span class="ba-lbl" aria-hidden="true">Before</span>Last year’s figures plus a percentage</span>
+        <span role="cell" class="ba-after"><span class="ba-lbl" aria-hidden="true">After</span>Driver-based forecasts updated as actuals arrive</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section" id="industries">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">Industries</p>
+        <h2 class="reveal d1">Industries we serve</h2>
+      </div>
+      <p class="intro reveal d2">The principles of good data work are the same everywhere. The questions aren’t — so we start from yours.</p>
+    </div>
+    <div class="industries">
+      <div class="industry reveal"><h3>Financial services &amp; insurance</h3><p>Portfolio, risk and regulatory reporting with a clear audit trail.</p></div>
+      <div class="industry reveal d1"><h3>SaaS &amp; technology</h3><p>Recurring revenue, retention and product usage in one view.</p></div>
+      <div class="industry reveal d2"><h3>Retail &amp; e-commerce</h3><p>Sales, margin and inventory across channels and regions.</p></div>
+      <div class="industry reveal"><h3>Healthcare &amp; life sciences</h3><p>Operational and outcome reporting with strict access controls.</p></div>
+      <div class="industry reveal d1"><h3>Manufacturing &amp; logistics</h3><p>Throughput, cost and on-time delivery from shop floor to board.</p></div>
+      <div class="industry reveal d2"><h3>Professional services</h3><p>Utilization, project profitability and pipeline forecasting.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-mist" id="process">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">Process</p>
+        <h2 class="reveal d1">How an engagement runs</h2>
+      </div>
+      <p class="intro reveal d2">A clear sequence with something you can see and test at every stage. Timings are typical for a mid-sized project and are confirmed in your proposal.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li class="step reveal">
+        <span class="step-n">1</span>
+        <p class="step-when">Week 1</p>
+        <h3>Discover</h3>
+        <p>Interviews with stakeholders and a review of your systems and current reports.</p>
+        <p class="step-out"><span>You get</span>A list of the questions that matter most</p>
+      </li>
+      <li class="step reveal d1">
+        <span class="step-n">2</span>
+        <p class="step-when">Weeks 1–3</p>
+        <h3>Assess</h3>
+        <p>A review of data quality, architecture and tooling against those priorities.</p>
+        <p class="step-out"><span>You get</span>Findings and a recommended roadmap</p>
+      </li>
+      <li class="step reveal d2">
+        <span class="step-n">3</span>
+        <p class="step-when">Weeks 2–4</p>
+        <h3>Design</h3>
+        <p>Target architecture, data model and dashboard wireframes, agreed with your team.</p>
+        <p class="step-out"><span>You get</span>A signed-off blueprint</p>
+      </li>
+      <li class="step reveal d3">
+        <span class="step-n">4</span>
+        <p class="step-when">Weeks 4–12</p>
+        <h3>Build</h3>
+        <p>Delivery in two-week sprints, with a working release and a demo at the end of each.</p>
+        <p class="step-out"><span>You get</span>Production pipelines and dashboards</p>
+      </li>
+      <li class="step reveal d4">
+        <span class="step-n">5</span>
+        <p class="step-when">Ongoing</p>
+        <h3>Enable &amp; support</h3>
+        <p>Training, documentation and handover, with optional ongoing support.</p>
+        <p class="step-out"><span>You get</span>A team that owns its data platform</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="section" id="engagements">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">Engagement models</p>
+        <h2 class="reveal d1">Ways to work with us</h2>
+      </div>
+      <p class="intro reveal d2">Start small and expand, or bring us in for a defined project. Every engagement begins with a written proposal: scope, timeline and price.</p>
+    </div>
+    <div class="models">
+      <article class="model model-start reveal">
+        <p class="model-tag">Best place to start</p>
+        <h3>Data &amp; BI assessment</h3>
+        <p class="model-term">Fixed price · 2–3 weeks</p>
+        <p>A focused review of your data, tools and reporting, ending in a written roadmap. Ideal if you know something isn’t working but not where to begin.</p>
+        <ul class="checks"><li>Stakeholder interviews</li><li>Architecture and data quality review</li><li>Prioritized roadmap with estimates</li></ul>
+        <a href="#contact" class="btn btn-accent" data-interest="Data &amp; BI assessment">Discuss an assessment <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="model reveal d1">
+        <p class="model-tag">For a defined goal</p>
+        <h3>Project delivery</h3>
+        <p class="model-term">Fixed scope or milestones</p>
+        <p>A new data platform, a migration or a dashboard suite, delivered by a dedicated team to an agreed plan and budget.</p>
+        <ul class="checks"><li>Fortnightly demos</li><li>Clear milestones and budget</li><li>Full documentation and handover</li></ul>
+        <a href="#contact" class="btn btn-outline" data-interest="Project delivery">Discuss a project <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="model reveal d2">
+        <p class="model-tag">For continuous improvement</p>
+        <h3>Ongoing BI partnership</h3>
+        <p class="model-term">Monthly retainer</p>
+        <p>Reserved capacity from senior consultants to extend your team, look after your platform and deliver new reports as needs change.</p>
+        <ul class="checks"><li>Reserved monthly hours</li><li>Platform monitoring and fixes</li><li>Quarterly roadmap reviews</li></ul>
+        <a href="#contact" class="btn btn-outline" data-interest="Ongoing BI partnership">Discuss a partnership <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="section section-mist" id="why">
+  <div class="wrap">
+    <div class="split-head">
+      <div>
+        <p class="kicker reveal">Why Aleraprime</p>
+        <h2 class="reveal d1">How we work</h2>
+      </div>
+      <p class="intro reveal d2">The commitments behind every engagement, whether it lasts three weeks or three years.</p>
+    </div>
+    <div class="principles">
+      <div class="principle reveal"><h3>Business questions first</h3><p>We start from the decisions you need to make, not from the tool we’d like to implement.</p></div>
+      <div class="principle reveal d1"><h3>Senior people on your project</h3><p>The consultants you meet on the first call are the people who do the work.</p></div>
+      <div class="principle reveal d2"><h3>Vendor-neutral advice</h3><p>We don’t resell licenses, so our recommendations aren’t tied to anyone’s sales targets.</p></div>
+      <div class="principle reveal"><h3>Security by default</h3><p>NDAs, least-privilege access and work inside your own environment wherever possible.</p></div>
+      <div class="principle reveal d1"><h3>Transparent delivery</h3><p>Clear scopes and estimates, regular demos and no surprises on the invoice.</p></div>
+      <div class="principle reveal d2"><h3>No lock-in</h3><p>Everything we build is documented and handed over, so your team can run it without us.</p></div>
+    </div>
+
+    <div class="assurance reveal" aria-label="Security and compliance commitments">
+      <div class="assurance-head">
+        <svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="14" width="18" height="13" rx="1.5"/><path d="M11 14v-4a5 5 0 0 1 10 0v4M16 19v3"/></svg>
+        <p><strong>Your data stays protected.</strong> Standard on every engagement:</p>
+      </div>
+      <ul class="assurance-list">
+        <li>NDA before any data access</li>
+        <li>Data processing agreement on request</li>
+        <li>GDPR- and CCPA-aware designs</li>
+        <li>Work inside your environment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-labelledby="ctaTitle">
+  <div class="wrap cta-in">
     <div>
-      <span class="eyebrow reveal">About us</span>
-      <h2 class="h2 reveal d1" style="margin:18px 0 18px;">We built Aleraprime because bad leads waste good salespeople.</h2>
-      <p class="lead reveal d2" style="margin-bottom:14px;">After years of watching high-performing teams burn hours on unverified, recycled data, we chose to operate differently. Every lead we deliver is consent-based, validated, and ready for outreach.</p>
-      <p class="reveal d2 muted" style="font-size:15.5px;">We work exclusively in B2B — no consumer data, no shortcuts, no long contracts. We earn the relationship with every delivery, from first sample to ongoing supply.</p>
+      <h2 id="ctaTitle" class="reveal">Not sure where to start?</h2>
+      <p class="reveal d1">Book a 30-minute consultation. We’ll look at your current setup and suggest the most valuable first step — whether or not we end up working together.</p>
     </div>
-    <div class="val-grid reveal d1" style="background:var(--line-2);">
-      <div class="val" style="background:var(--white);"><div class="big" style="font-family:var(--serif);font-size:46px;font-weight:300;color:var(--navy-2);line-height:1;"><span data-count="5" data-suffix="M+">0</span></div><div class="vn" style="color:var(--ink-faint);margin:14px 0 0;">Verified contacts</div></div>
-      <div class="val" style="background:var(--white);"><div class="big" style="font-family:var(--serif);font-size:46px;font-weight:300;color:var(--navy-2);line-height:1;">Global</div><div class="vn" style="color:var(--ink-faint);margin:14px 0 0;">Reach &amp; targeting</div></div>
-      <div class="val" style="background:var(--white);"><div class="big" style="font-family:var(--serif);font-size:46px;font-weight:300;color:var(--navy-2);line-height:1;"><span data-count="100" data-suffix="%">0</span></div><div class="vn" style="color:var(--ink-faint);margin:14px 0 0;">Consent based</div></div>
-      <div class="val" style="background:var(--white);"><div class="big" style="font-family:var(--serif);font-size:46px;font-weight:300;color:var(--navy-2);line-height:1;">B2B</div><div class="vn" style="color:var(--ink-faint);margin:14px 0 0;">Exclusively focused</div></div>
+    <a href="#contact" class="btn btn-light btn-lg reveal d2">Book a free consultation <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <p class="kicker reveal">FAQ</p>
+      <h2 class="reveal d1">Questions clients ask</h2>
+      <p class="intro reveal d2">Something else on your mind? <a class="inline-link" href="#contact">Send us a message</a> and we’ll answer directly.</p>
+    </div>
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary><span>What size of company do you work with?</span><i aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Mostly growing and mid-sized companies that have outgrown spreadsheets or a first BI setup, and individual departments within larger organizations that need focused help.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Which BI tools do you recommend?</span><i aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>The one that fits your team, budget and existing systems. We work with Power BI, Tableau, Looker and the major cloud platforms, and we don’t resell licenses, so our advice stays neutral. If your current tools can do the job, we’ll say so.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Can you work alongside our internal data team?</span><i aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Yes. Many engagements are a mix: we take on the architecture or the heavy lifting, your team works with us throughout, and we finish with training and documentation so they own the result.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span>How do you handle data security and privacy?</span><i aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>We sign an NDA before seeing any data, work with least-privilege access and inside your environment wherever possible, and sign a data processing agreement where required. Our designs account for GDPR and CCPA from the start.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span>How is pricing structured?</span><i aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Assessments are fixed price. Projects are priced by fixed scope or milestone, and ongoing support is a monthly retainer. After a first call you receive a written proposal with scope, timeline and cost.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Do you work with clients in both the US and Europe?</span><i aria-hidden="true"></i></summary>
+        <div class="faq-a"><p>Yes. We run engagements remotely with on-site workshops when they add value, and schedule our working hours to overlap with your team, whether you’re in New York, Chicago, London or Berlin.</p></div>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- ===================== SERVICES ===================== -->
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">What we do</span>
-      <h2 class="h2">Lead generation, done properly.</h2>
-      <p class="lead">We source, verify, and deliver qualified leads to businesses that depend on a consistent pipeline. Every record is consent-based, data-complete, and ready for your sales team.</p>
-    </div>
-    <div class="svc-grid">
-      <div class="svc reveal"><span class="ix">01</span><h3>Exclusive Leads</h3><p>Delivered to a single buyer only. Real-time, fresh contacts with full data and consent documentation — no competition, full ownership.</p></div>
-      <div class="svc reveal d1"><span class="ix">02</span><h3>Shared Leads</h3><p>Cost-effective leads distributed to a controlled number of buyers. Ideal for high-volume teams with fast, systematic follow-up.</p></div>
-      <div class="svc reveal d2"><span class="ix">03</span><h3>Aged Lead Batches</h3><p>Verified leads at a significantly reduced cost per unit. Built for teams with strong nurturing and re-engagement workflows.</p></div>
-      <div class="svc reveal"><span class="ix">04</span><h3>Custom Campaigns</h3><p>We build and run targeted lead-generation campaigns around your specific audience, geography, and performance objectives.</p></div>
-      <div class="svc reveal d1"><span class="ix">05</span><h3>Data Enrichment</h3><p>Append missing fields to your existing lists — contact details, company data, and intent signals that improve conversion.</p></div>
-      <div class="svc reveal d2"><span class="ix">06</span><h3>Ongoing Supply</h3><p>Structured supply agreements for companies that need a reliable, recurring volume of qualified leads month over month.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== APPROACH ===================== -->
-<section class="section bg-paper" id="approach">
-  <div class="wrap approach-grid">
-    <div>
-      <span class="eyebrow reveal">Our approach</span>
-      <h2 class="h2 reveal d1" style="margin:18px 0 16px;">Simple process. Measurable results.</h2>
-      <p class="lead reveal d2" style="margin-bottom:14px;">No complex platforms or lengthy onboarding — clarity and precision at every stage.</p>
-      <div class="steps reveal d2">
-        <div class="step"><div class="sn">01</div><div><h4>Define your requirements</h4><p>Share your target market, volume, geography, and budget. We design a lead package built around your goals.</p></div></div>
-        <div class="step"><div class="sn">02</div><div><h4>Review a free sample</h4><p>Before any commitment, you receive a sample batch and evaluate the data quality firsthand.</p></div></div>
-        <div class="step"><div class="sn">03</div><div><h4>Receive &amp; integrate</h4><p>Delivered via CSV, direct CRM integration, or real-time API — whichever fits your workflow.</p></div></div>
-        <div class="step"><div class="sn">04</div><div><h4>Scale on your terms</h4><p>Adjust volume, pause, or expand anytime. Replacement guarantees on invalid leads, with a dedicated contact throughout.</p></div></div>
-      </div>
-    </div>
-    <div class="approach-visual reveal d1">
-      <div class="statpanel">
-        <div class="statpanel-head">
-          <span class="sp-eyebrow">Quality snapshot</span>
-          <span class="sp-period">Last 90 days</span>
-        </div>
-        <div class="statpanel-bars">
-          <div class="sp-row">
-            <div class="sp-top"><span class="sp-lab">Data accuracy</span><span class="sp-val" data-count="98" data-suffix="%">0</span></div>
-            <div class="sp-track"><span class="sp-fill" style="--w:98%;"></span></div>
-          </div>
-          <div class="sp-row">
-            <div class="sp-top"><span class="sp-lab">Email deliverability</span><span class="sp-val" data-count="96" data-suffix="%">0</span></div>
-            <div class="sp-track"><span class="sp-fill" style="--w:96%;"></span></div>
-          </div>
-          <div class="sp-row">
-            <div class="sp-top"><span class="sp-lab">Consent verified</span><span class="sp-val" data-count="100" data-suffix="%">0</span></div>
-            <div class="sp-track"><span class="sp-fill" style="--w:100%;"></span></div>
-          </div>
-          <div class="sp-row">
-            <div class="sp-top"><span class="sp-lab">Duplicate-free rate</span><span class="sp-val" data-count="99" data-suffix="%">0</span></div>
-            <div class="sp-track"><span class="sp-fill" style="--w:99%;"></span></div>
-          </div>
-        </div>
-        <div class="statpanel-foot">
-          <div class="spf"><span class="spf-n" data-count="5" data-suffix="M+">0</span><span class="spf-k">Verified contacts</span></div>
-          <div class="spf"><span class="spf-n" data-count="24" data-suffix="h">0</span><span class="spf-k">Response time</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== METRICS ===================== -->
-<div class="metrics">
-  <div class="wrap" style="padding-block:clamp(38px,4.5vw,58px);">
-    <div class="metrics-grid">
-      <div class="metric reveal"><div class="n"><span data-count="100">0</span><span class="u">%</span></div><div class="k">Opt-in consent</div></div>
-      <div class="metric reveal d1"><div class="n"><span data-count="48">0</span><span class="u">h</span></div><div class="k">First delivery</div></div>
-      <div class="metric reveal d2"><div class="n"><span data-count="4">0</span></div><div class="k">Lead formats</div></div>
-      <div class="metric reveal d3"><div class="n"><span data-count="24">0</span><span class="u">h</span></div><div class="k">Response time</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== VALUES ===================== -->
-<section class="section" id="why">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Why Aleraprime</span>
-      <h2 class="h2">What sets us apart.</h2>
-      <p class="lead">A set of non-negotiable standards that define how we source, handle, and deliver every lead.</p>
-    </div>
-    <div class="val-grid">
-      <div class="val reveal"><div class="vn">— 01</div><h3>Verified &amp; compliant</h3><p>Every lead carries documented consent. We maintain full sourcing transparency and compliance records, available to clients on request.</p></div>
-      <div class="val reveal d1"><div class="vn">— 02</div><h3>Data integrity</h3><p>Leads are validated before delivery — no duplicates, no invalid contacts, no incomplete records. What you receive is what you paid for.</p></div>
-      <div class="val reveal"><div class="vn">— 03</div><h3>Speed to delivery</h3><p>From agreement to first delivery within 48 hours. Real-time options available for clients who need immediate pipeline flow.</p></div>
-      <div class="val reveal d1"><div class="vn">— 04</div><h3>Dedicated partnership</h3><p>Every client has a named account contact. No automated ticketing, no generic support — direct communication from day one.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== AUDIENCES ===================== -->
-<section class="section bg-paper" id="audiences">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Who we reach</span>
-      <h2 class="h2">Audiences at scale.</h2>
-      <p class="lead">Access to large, segmented audiences of verified business decision-makers — an immediate, reliable pipeline from day one.</p>
-    </div>
-    <div class="aud-grid">
-      <div class="aud reveal"><div class="big"><span data-count="12" data-suffix="M+">0</span></div><div class="lab">Business decision-makers</div><p>Owners, directors, and C-suite contacts across mid-market and enterprise companies globally.</p></div>
-      <div class="aud reveal d1"><div class="big"><span data-count="8.5" data-decimals="1" data-suffix="M+">0</span></div><div class="lab">SMB owners &amp; operators</div><p>Verified small and medium business principals actively seeking services, solutions, and partnerships.</p></div>
-      <div class="aud reveal d2"><div class="big"><span data-count="6.2" data-decimals="1" data-suffix="M+">0</span></div><div class="lab">High-intent prospects</div><p>Contacts who expressed active purchase intent within the last 30 days — our highest-converting segment.</p></div>
-      <div class="aud reveal"><div class="big"><span data-count="5.8" data-decimals="1" data-suffix="M+">0</span></div><div class="lab">Opt-in verified contacts</div><p>Fully consented data with documented opt-in records — compliant with current B2B marketing standards.</p></div>
-      <div class="aud reveal d1"><div class="big"><span data-count="5.1" data-decimals="1" data-suffix="M+">0</span></div><div class="lab">Geographically segmented</div><p>Filterable by state, metro, and zip across all 50 US states. Precision targeting at any scale.</p></div>
-      <div class="aud reveal d2"><div class="big"><span data-count="3.4" data-decimals="1" data-suffix="M+">0</span></div><div class="lab">Senior-level executives</div><p>VP, Director, and C-level contacts verified by title, company size, and industry — ideal for enterprise sales.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== BILLBOARD ===================== -->
-<div class="billboard">
-  <div class="wrap billboard-in">
-    <span class="lbl">Our philosophy</span>
-    <p class="billboard-quote">We don't sell lists.<br>We <em>open doors.</em></p>
-    <p class="billboard-sub">Every Aleraprime lead is a verified introduction to your next best client — never just a name on a spreadsheet.</p>
-    <a class="billboard-link" href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener">LinkedIn <span class="arr">→</span></a>
-  </div>
-</div>
-
-<!-- ===================== TESTIMONIALS ===================== -->
-<section class="section" id="reviews">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Client reviews</span>
-      <h2 class="h2">What our clients say.</h2>
-      <p class="lead">We measure our success by the results our partners achieve. A selection of what clients have shared about working with Aleraprime.</p>
-    </div>
-    <div class="rev-grid">
-      <div class="rev reveal">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg></div>
-        <p class="q">“The quality was noticeably higher than what we'd bought elsewhere. The data was complete, contacts were reachable, and conversion exceeded our benchmark within two weeks.”</p>
-        <div class="who"><div class="nm">Marcus D.</div><div class="rl">VP of Sales, Financial Services Firm</div></div>
-      </div>
-      <div class="rev reveal d1">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg></div>
-        <p class="q">“What stood out was the transparency. A free sample before committing, a responsive contact from day one, and clear documentation with every delivery. Exactly what we needed.”</p>
-        <div class="who"><div class="nm">Sarah L.</div><div class="rl">Director of Growth, B2B Agency</div></div>
-      </div>
-      <div class="rev reveal d2">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg></div>
-        <p class="q">“We scaled from a test batch to a full ongoing supply within six weeks. The process was straightforward and the team handled everything. Aleraprime is now core to our acquisition strategy.”</p>
-        <div class="who"><div class="nm">James O.</div><div class="rl">Head of Acquisition, National Services Group</div></div>
-      </div>
-      <div class="rev reveal d3">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.8.8-5 4.6 1.3 6.8L12 17.8 5.7 21l1.3-6.8-5-4.6 6.8-.8z"/></svg></div>
-        <p class="q">“Reliable from day one. Volume scaled exactly when we needed it, the replacement guarantee was honored without friction, and our cost per acquisition dropped noticeably within the first quarter.”</p>
-        <div class="who"><div class="nm">Daniel R.</div><div class="rl">Founder, B2B SaaS Company</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FAQ ===================== -->
-<section class="section bg-paper" id="faq">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="h2">Common questions.</h2>
-    </div>
-    <div class="faq-wrap reveal d1">
-      <details class="faq-item"><summary class="faq-q"><span>What types of leads do you supply?</span><span class="faq-ic"></span></summary><div class="faq-a">We supply B2B leads across several formats — exclusive leads to a single buyer, shared leads to a controlled number of buyers, aged batches at reduced cost, and custom-campaign leads built around your audience and geography.</div></details>
-      <details class="faq-item"><summary class="faq-q"><span>How do you verify your data?</span><span class="faq-ic"></span></summary><div class="faq-a">Every contact passes a multi-step validation before delivery: duplicate checks, contact-field validation, consent confirmation, and removal of any record below our quality threshold. What you receive has already cleared internal review.</div></details>
-      <details class="faq-item"><summary class="faq-q"><span>Can I see a sample before committing?</span><span class="faq-ic"></span></summary><div class="faq-a">Yes. We provide a free sample batch before any agreement is signed, so you can evaluate quality, completeness, and relevance firsthand. No minimums and no contracts required to receive a sample.</div></details>
-      <details class="faq-item"><summary class="faq-q"><span>How quickly can we get started?</span><span class="faq-ic"></span></summary><div class="faq-a">We respond to all inquiries within 24 hours. Once requirements are agreed, first delivery typically happens within 48 hours. Custom-campaign timelines depend on scope and targeting.</div></details>
-      <details class="faq-item"><summary class="faq-q"><span>What happens if leads are invalid?</span><span class="faq-ic"></span></summary><div class="faq-a">We offer replacement guarantees on invalid leads. If a contact doesn't meet the agreed criteria — incorrect data, unreachable, or outside parameters — we replace it. Your account contact manages this directly.</div></details>
-      <details class="faq-item"><summary class="faq-q"><span>How are leads delivered?</span><span class="faq-ic"></span></summary><div class="faq-a">Via CSV, direct CRM integration, or real-time API — whichever fits your existing workflow. We work with your team to match the format to your systems from day one.</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CONTACT ===================== -->
-<section class="section" id="contact">
+<!-- CONTACT -->
+<section class="section section-mist" id="contact">
   <div class="wrap contact-grid">
-    <div class="contact-aside reveal">
-      <span class="eyebrow">Work with us</span>
-      <h2 class="h2" style="margin-top:24px;">Ready to build your pipeline?</h2>
-      <p class="lead">Tell us about your business and what you need. We respond within 24 hours with a tailored proposal and a free sample batch — no commitment required.</p>
-      <div class="contact-points">
-        <div class="cpt"><span class="k">Email</span><span class="v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d4a4b5a6a0bab1a6a7bcbda4a794b5b8b1a6b5a4a6bdb9b1fab7bbb9">[email&#160;protected]</a></span></div>
-        <div class="cpt"><span class="k">Response time</span><span class="v">Within 24 hours</span></div>
-        <div class="cpt"><span class="k">First step</span><span class="v">Free sample — no minimums, no contracts</span></div>
-      </div>
+    <div class="contact-side">
+      <p class="kicker reveal">Contact</p>
+      <h2 class="reveal d1">Tell us about your data challenge</h2>
+      <p class="intro reveal d2">Share a few details and a consultant will reply within one business day to arrange a call.</p>
+
+      <ol class="next reveal d2">
+        <li><strong>We reply within one business day</strong> to find a time that suits you.</li>
+        <li><strong>A 30-minute call</strong> to understand your goals, systems and constraints.</li>
+        <li><strong>A written proposal</strong> with scope, timeline and price.</li>
+      </ol>
+
+      <dl class="contact-points reveal d3">
+        <div><dt>Email</dt><dd><a href="mailto:partnerships@aleraprime.com">partnerships@aleraprime.com</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener">Aleraprime on LinkedIn</a></dd></div>
+        <div><dt>Coverage</dt><dd>United States and Europe</dd></div>
+      </dl>
     </div>
 
     <div class="form-card reveal d1">
-      <div class="form-ok" id="formOk">Thank you — we've received your inquiry and will respond within 24 hours.</div>
-      <form id="contactForm" novalidate>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      <form id="contactForm" action="https://formspree.io/f/xredwboz" method="POST" novalidate>
         <div class="frow">
-          <div class="fg"><label>First name</label><input type="text" name="firstname" placeholder="John" /></div>
-          <div class="fg"><label>Last name</label><input type="text" name="lastname" placeholder="Smith" /></div>
+          <div class="fg">
+            <label for="f-name">Full name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <p class="ferr" id="e-name"></p>
+          </div>
+          <div class="fg">
+            <label for="f-email">Work email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+            <p class="ferr" id="e-email"></p>
+          </div>
         </div>
-        <div class="fg"><label>Company</label><input type="text" name="company" placeholder="Company name" /></div>
-        <div class="fg"><label>Business email</label><input type="email" name="email" placeholder="you@company.com" /></div>
-        <div class="fg"><label>Lead volume needed</label>
-          <select name="volume">
-            <option value="">Select estimated volume…</option>
-            <option>Under 500 leads</option>
-            <option>500 – 2,000 leads</option>
-            <option>2,000 – 10,000 leads</option>
-            <option>10,000+ / ongoing supply</option>
-          </select>
+        <div class="frow">
+          <div class="fg">
+            <label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company">
+            <p class="ferr" id="e-company"></p>
+          </div>
+          <div class="fg">
+            <label for="f-role">Role <span class="opt">optional</span></label>
+            <input id="f-role" name="role" type="text" autocomplete="organization-title">
+          </div>
         </div>
-        <div class="fg"><label>Message</label><textarea name="message" placeholder="Describe your target market, geography, and any specific requirements…"></textarea></div>
+        <div class="frow">
+          <div class="fg">
+            <label for="f-region">Where are you based?</label>
+            <select id="f-region" name="region">
+              <option value="">Select a region</option>
+              <option>United States</option>
+              <option>Europe</option>
+              <option>Elsewhere</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="f-interest">What do you need help with?</label>
+            <select id="f-interest" name="interest">
+              <option value="">Select a topic</option>
+              <option>Data &amp; BI assessment</option>
+              <option>Data strategy &amp; roadmap</option>
+              <option>Data engineering &amp; integration</option>
+              <option>Cloud data platform</option>
+              <option>BI &amp; dashboards</option>
+              <option>Analytics &amp; forecasting</option>
+              <option>Data governance &amp; quality</option>
+              <option>Project delivery</option>
+              <option>Ongoing BI partnership</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="f-message">Your challenge</label>
+          <textarea id="f-message" name="message" rows="5" required aria-describedby="e-message" placeholder="For example: our sales and finance numbers never match, and month-end reporting takes a week."></textarea>
+          <p class="ferr" id="e-message"></p>
+        </div>
+        <input type="hidden" name="_subject" value="New enquiry from aleraprime.com">
+        <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this field empty</label><input id="f-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
         <div class="form-foot">
-          <button type="submit" class="btn btn-primary" id="submitBtn">Send inquiry <span class="arr">→</span></button>
-          <p class="fineprint">By submitting, you agree to be contacted about Aleraprime services. Data handled per our GDPR-compliant policy.</p>
+          <button type="submit" class="btn btn-accent btn-lg" id="submitBtn">Send message <span class="arr" aria-hidden="true">→</span></button>
+          <p class="fineprint">We use these details only to reply to your enquiry. See our <a href="/privacy.html">privacy notice</a>.</p>
         </div>
       </form>
     </div>
@@ -687,168 +535,50 @@ em.accent { font-style: italic; color: var(--navy-2); }
 
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div class="fbrand">
-        <a href="#top" class="wordmark light"><span class="bar"></span><span class="name">Aleraprime</span></a>
-        <p class="blurb">Verified B2B leads for sales teams that can't afford to waste time on bad data.</p>
-        <a class="li" href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
+      <div class="footer-brand">
+        <a href="#top" class="brand brand-light" aria-label="Aleraprime, back to top">
+          <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="3" width="2.4" height="22" fill="currentColor"/><path d="M10 22 L16.5 6 L23 22" fill="none" stroke="currentColor" stroke-width="2.4"/><path class="brand-bar" d="M12.6 16 H20.4" stroke-width="2.4"/></svg>
+          <span class="brand-name">Aleraprime</span>
         </a>
+        <p>Data and business intelligence consulting for companies in the United States and Europe.</p>
+        <a href="#contact" class="btn btn-accent">Book a consultation <span class="arr" aria-hidden="true">→</span></a>
       </div>
-      <div class="fcol">
-        <h4>Company</h4>
-        <a href="#about">About us</a>
-        <a href="#why">Why us</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="fcol">
-        <h4>Services</h4>
-        <a href="#services">Exclusive leads</a>
-        <a href="#services">Shared leads</a>
-        <a href="#services">Aged batches</a>
-        <a href="#services">Custom campaigns</a>
-      </div>
-      <div class="fcol">
-        <h4>Get in touch</h4>
-        <a href="/cdn-cgi/l/email-protection#fc8c9d8e8892998e8f94958c8fbc9d90998e9d8c8e959199d29f9391"><span class="__cf_email__" data-cfemail="fb8b9a898f959e898893928b88bb9a979e899a8b8992969ed5989496">[email&#160;protected]</span></a>
-        <a href="#contact">Request a sample</a>
+      <nav class="fcol" aria-label="Services">
+        <h2>Services</h2>
+        <a href="#services">Data strategy</a>
+        <a href="#services">Data engineering</a>
+        <a href="#services">Cloud data platforms</a>
+        <a href="#services">BI &amp; dashboards</a>
+        <a href="#services">Analytics &amp; forecasting</a>
+        <a href="#services">Data governance</a>
+      </nav>
+      <nav class="fcol" aria-label="Company">
+        <h2>Company</h2>
+        <a href="#process">Process</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#why">How we work</a>
         <a href="#faq">FAQ</a>
+      </nav>
+      <div class="fcol">
+        <h2>Contact</h2>
+        <a href="mailto:partnerships@aleraprime.com">partnerships@aleraprime.com</a>
+        <a href="https://www.linkedin.com/company/126293967/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#contact">Book a consultation</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="cp">© <span id="yr">2026</span> Aleraprime. All rights reserved.</span>
-      <div class="legal">
-        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Data Processing</a>
+      <p>© <span id="yr">2026</span> Aleraprime. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy notice</a>
+        <a href="#top" class="totop">Back to top ↑</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ALERAPRIME v2 — interactions */
-(function () {
-  "use strict";
-
-  /* sticky header */
-  var header = document.querySelector(".header");
-  function onScroll(){ if (window.scrollY > 20) header.classList.add("scrolled"); else header.classList.remove("scrolled"); }
-  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
-
-  /* mobile nav */
-  var menuBtn = document.getElementById("menuBtn");
-  var nav = document.getElementById("nav");
-  if (menuBtn && nav) {
-    menuBtn.addEventListener("click", function(){ menuBtn.classList.toggle("open"); nav.classList.toggle("open"); });
-    nav.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ menuBtn.classList.remove("open"); nav.classList.remove("open"); }); });
-  }
-
-  /* reveal (rect-based, robust to hidden/frozen tabs) */
-  var reveals = [].slice.call(document.querySelectorAll(".reveal"));
-  function checkReveals(){
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    reveals.forEach(function(el){
-      if (el.classList.contains("in")) return;
-      var r = el.getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add("in");
-    });
-  }
-  window.addEventListener("scroll", checkReveals, { passive: true });
-  window.addEventListener("resize", checkReveals, { passive: true });
-  checkReveals(); requestAnimationFrame(checkReveals); window.addEventListener("load", checkReveals);
-
-  /* counters */
-  function animateCount(el){
-    var target = parseFloat(el.getAttribute("data-count"));
-    var dec = el.getAttribute("data-decimals") | 0;
-    var suffix = el.getAttribute("data-suffix") || "";
-    var dur = 1300, start = null;
-    function fmt(v){ return v.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
-    function step(ts){
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      var e = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(target * e) + suffix;
-      if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(target) + suffix;
-    }
-    requestAnimationFrame(step);
-  }
-  var counters = [].slice.call(document.querySelectorAll("[data-count]"));
-  function checkCounters(){
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    counters = counters.filter(function(el){
-      var r = el.getBoundingClientRect();
-      if (r.top < vh * 0.95 && r.bottom > 0){ animateCount(el); return false; }
-      return true;
-    });
-  }
-  window.addEventListener("scroll", checkCounters, { passive: true });
-  checkCounters(); requestAnimationFrame(checkCounters);
-
-  /* show-all fallback for hidden/non-painting tabs */
-  function forceShowAll(){
-    document.querySelectorAll(".reveal").forEach(function(el){ el.style.transition="none"; el.classList.add("in"); el.style.opacity="1"; el.style.transform="none"; });
-    document.querySelectorAll("[data-count]").forEach(function(el){
-      var dec = el.getAttribute("data-decimals") | 0;
-      el.textContent = parseFloat(el.getAttribute("data-count")).toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (el.getAttribute("data-suffix")||"");
-    });
-  }
-  if (document.hidden) forceShowAll();
-  document.addEventListener("visibilitychange", function(){ if (document.hidden) forceShowAll(); });
-  setTimeout(function(){ document.querySelectorAll(".reveal:not(.in)").forEach(function(el){ el.style.transition="none"; el.classList.add("in"); }); }, 2200);
-
-  /* FAQ single-open (native <details>) */
-  var faqs = [].slice.call(document.querySelectorAll(".faq-item"));
-  faqs.forEach(function(d){
-    d.addEventListener("toggle", function(){
-      if (d.open) faqs.forEach(function(o){ if (o !== d) o.open = false; });
-    });
-  });
-
-  /* anchor offset */
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener("click", function(ev){
-      var id = a.getAttribute("href"); if (id.length < 2) return;
-      var t = document.querySelector(id); if (!t) return;
-      ev.preventDefault();
-      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 72, behavior: "smooth" });
-    });
-  });
-
-  /* contact form -> Formspree */
-  var form = document.getElementById("contactForm");
-  if (form) {
-    var btn = document.getElementById("submitBtn");
-    var ok = document.getElementById("formOk");
-    var inputs = form.querySelectorAll("input,select,textarea");
-    form.addEventListener("submit", async function(ev){
-      ev.preventDefault();
-      var data = {};
-      inputs.forEach(function(i){ if (i.name) data[i.name] = i.value; });
-      data._subject = "New inquiry — Aleraprime website" + (data.company ? " · " + data.company : "");
-      if (data.email) data.email = data.email;  /* Formspree uses the 'email' field as reply-to */
-      btn.textContent = "Sending…"; btn.disabled = true;
-      try {
-        var res = await fetch("https://formspree.io/f/xredwboz", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify(data)
-        });
-        if (res.ok) {
-          ok.style.display = "block";
-          inputs.forEach(function(i){ i.value = ""; });
-          btn.textContent = "Sent"; 
-        } else { btn.textContent = "Send inquiry"; btn.disabled = false; }
-      } catch(e) { btn.textContent = "Send inquiry"; btn.disabled = false; }
-    });
-  }
-
-  var yr = document.getElementById("yr"); if (yr) yr.textContent = new Date().getFullYear();
-})();
-
-</script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
