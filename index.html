@@ -396,6 +396,175 @@ h2 { font-size: clamp(28px, 2.7vw, 38px); line-height: 1.12; }
   .meet-item { padding: 12px 14px; }
   .footer-top { gap: 28px 20px; }
 }
+
+/* ===== Compact layout, level 2 (sizing and spacing only) ===== */
+:root { --sect: clamp(44px, 4.6vw, 68px); --header-h: 62px; }
+body { font-size: 15.5px; line-height: 1.6; }
+h2 { font-size: clamp(25px, 2.3vw, 33px); }
+.kicker { margin-bottom: 10px; font-size: 11px; }
+.intro { font-size: 15.5px; }
+.split-head { gap: 12px 56px; margin-bottom: clamp(22px, 2.6vw, 32px); }
+.btn { min-height: 40px; padding: 9px 18px; font-size: 14px; }
+.btn-lg { min-height: 44px; padding: 11px 22px; font-size: 14.5px; }
+.header-cta { min-height: 36px; padding: 8px 14px; font-size: 13.5px; }
+.brand-mark { width: 24px; height: 24px; }
+.brand-name { font-size: 17px; }
+.nav a:not(.btn) { font-size: 14px; }
+
+/* hero */
+.hero { padding: calc(var(--header-h) + clamp(26px, 3.4vw, 44px)) 0 clamp(26px, 3vw, 36px); }
+.hero h1 { font-size: clamp(32px, 3.5vw, 48px); }
+.hero-tagline { margin-top: 14px; font-size: 15.5px; }
+.hero-actions { margin-top: 20px; }
+.pills { margin-top: 16px; }
+.pills li { padding: 4px 10px; font-size: 12px; }
+.flow-visual { max-width: 440px; }
+.hero-facts { margin-top: clamp(26px, 3vw, 36px); }
+.hero-facts li { padding-top: 14px; }
+.hero-facts strong { font-size: 16.5px; }
+.hero-facts span { font-size: 13.5px; }
+
+/* services */
+.services { gap: 12px; }
+.service { padding: 18px 18px 16px; }
+.service .ic { width: 34px; height: 34px; padding: 6px; margin-bottom: 12px; border-radius: 8px; }
+.service h3 { font-size: 15.5px; }
+.service p { margin-top: 6px; font-size: 14px; line-height: 1.5; }
+.service-num { top: 18px; right: 16px; font-size: 12px; }
+.deliv { padding-top: 12px; gap: 5px; }
+.deliv li { padding: 2px 8px; font-size: 11.5px; }
+.service-combine { padding: 20px 18px; }
+.service-combine h3 { font-size: 19px; }
+.service-combine p { margin-top: 8px; font-size: 14px; }
+.chain { margin-top: 12px; }
+
+/* sample dashboard */
+.dash { padding: clamp(14px, 1.6vw, 18px); }
+.dash-top { padding-bottom: 10px; }
+.dash-title { font-size: 15.5px; }
+.tiles { gap: 8px; margin-top: 10px; }
+.tile { padding: 10px 14px; }
+.tile-k { font-size: 12.5px; }
+.tile-v { margin-top: 2px; font-size: clamp(20px, 1.8vw, 23px); }
+.tile-d { margin-top: 4px; font-size: 12.5px; }
+.dash-body { gap: 8px; margin-top: 8px; }
+.panel { padding: 12px 14px 8px; }
+.panel-head { margin-bottom: 6px; }
+.panel-title { font-size: 13.5px; }
+.rev-chart { min-height: 190px; }
+.kpi { font-size: 13px; }
+.kpi th, .kpi td { padding: 6px 5px; }
+.pill { padding: 2px 8px; font-size: 11.5px; }
+.dash-foot { margin-top: 10px; font-size: 12px; }
+
+/* how it works */
+.flow { gap: 10px; }
+.stage { padding: 14px 14px 12px; }
+.stage h3 { margin-top: 2px; font-size: 15px; }
+.stage .stage-what { margin-top: 8px; padding-top: 8px; font-size: 13.5px; line-height: 1.45; }
+.stage .stage-res { padding-top: 10px; font-size: 13px; }
+.stage:not(:last-child)::after { top: 24px; }
+.flow-bars { gap: 6px; margin-top: 10px; }
+.flow-bar { padding: 8px 14px; font-size: 13.5px; }
+
+/* method */
+.step-n { width: 36px; height: 36px; font-size: 16px; box-shadow: 0 0 0 5px #fff; }
+.steps::before, .steps::after { top: 18px; left: 18px; }
+#method .step h3 { margin-top: 14px; font-size: 18px; }
+#method .step > p:not(.step-out) { margin: 6px 0 10px; font-size: 14px; line-height: 1.5; }
+.step-out { padding-top: 10px; font-size: 13.5px; }
+.step-out span { margin-bottom: 2px; font-size: 11px; }
+.builtin-title { margin: clamp(26px, 3vw, 36px) 0 12px; font-size: 11.5px; }
+.principles.p4 { gap: 18px 28px; }
+.principle { padding-top: 12px; }
+.principle h3 { font-size: 17px; }
+.principle p { margin-top: 4px; font-size: 14px; }
+
+/* contractor logos */
+.xp-head { margin-bottom: 18px; }
+.xp-head h2 { font-size: clamp(22px, 2vw, 27px); }
+.logo-wall { gap: 10px; }
+.logo-item { flex-basis: calc((100% - 6 * 10px) / 7); padding: 14px 10px 12px; }
+.logo-box { height: 42px; }
+.logo-box img { max-height: 30px; }
+.logo-box img.logo-kbr { max-height: 38px; }
+.logo-name { margin-top: 8px; padding-top: 8px; font-size: 12.5px; }
+.logo-sub { font-size: 11.5px; }
+
+/* faq */
+.faq-grid { gap: 24px 64px; }
+.faq-side .intro { margin-top: 10px; }
+.faq-item summary { padding: 13px 0; font-size: clamp(16px, 1.25vw, 17.5px); }
+.faq-item summary i { width: 26px; height: 26px; }
+.faq-a p { padding-bottom: 14px; font-size: 14.5px; }
+
+/* contact */
+.contact-grid { gap: 32px 56px; }
+.contact-side .intro { margin-top: 10px; }
+.meet { margin-top: 18px; gap: 6px; }
+.meet-item { padding: 10px 16px; }
+.meet-item h3 { font-size: 15px; }
+.meet-item p { margin-top: 2px; font-size: 14px; }
+.contact-card { padding: clamp(18px, 2vw, 26px); }
+.contact-card h3 { font-size: 21px; }
+.contact-card > p { margin-top: 8px; font-size: 14.5px; }
+.mail-line { margin-top: 14px; padding: 10px 14px; }
+.mail-line .ic { width: 32px; height: 32px; padding: 6px; }
+.mail-v { font-size: 17px; }
+.contact-actions { margin-top: 12px; gap: 10px; }
+.contact-card .lbl { margin-top: 14px; padding-top: 12px; }
+.contact-card .chips { margin-top: 8px; gap: 6px; }
+.contact-card .chips li { padding: 3px 9px; font-size: 12px; }
+
+/* footer */
+.footer { padding-top: clamp(34px, 4vw, 48px); }
+.footer-top { gap: 28px; padding-bottom: 28px; }
+.footer-brand p { margin: 10px 0 16px; font-size: 14px; }
+.fcol { gap: 6px; }
+.fcol h2 { margin-bottom: 4px; font-size: 11.5px; }
+.fcol a { font-size: 14px; }
+.footer-bottom { padding-block: 16px 20px; font-size: 13px; }
+
+@media (max-width: 1120px) {
+  .logo-item { flex-basis: calc((100% - 3 * 10px) / 4); }
+}
+@media (max-width: 980px) {
+  :root { --header-h: 60px; }
+  .flow-visual { max-width: 400px; }
+  .logo-item { flex-basis: calc((100% - 2 * 10px) / 3); }
+  .flow { grid-template-columns: 1fr 1fr; }
+  .stage::after { display: none !important; }
+  .stage:last-child { grid-column: span 2; }
+  .nav a:not(.btn) { padding: 14px 0; font-size: 18px; }
+}
+@media (max-width: 640px) {
+  :root { --sect: 40px; }
+  h2 { font-size: clamp(23px, 6.4vw, 27px); }
+  .split-head { margin-bottom: 20px; }
+  .hero { padding-top: calc(var(--header-h) + 22px); padding-bottom: 24px; }
+  .hero h1 { font-size: clamp(30px, 8.4vw, 36px); }
+  .hero-actions { margin-top: 18px; gap: 8px; }
+  .hero-actions .btn { min-height: 44px; }
+  .flow-visual { max-width: 340px; margin-top: -8px; }
+  .hero-facts { margin-top: 18px; }
+  .hero-facts li, .hero-facts.facts-3 li, .hero-facts.facts-3 li:nth-child(even) { padding: 10px 0; }
+  .services { gap: 8px; }
+  .service { padding: 16px 16px 14px; }
+  .service .ic { margin-bottom: 10px; }
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .rev-chart { height: 190px; min-height: 190px; }
+  .flow { grid-template-columns: 1fr; gap: 8px; }
+  .stage:last-child { grid-column: span 1; }
+  .steps .step { padding-bottom: 14px; }
+  .step::before { top: 40px; left: 18px; }
+  #method .step h3 { margin-top: 4px; font-size: 17px; }
+  .principles.p4 { gap: 12px; }
+  .logo-item { flex-basis: calc((100% - 10px) / 2); padding: 12px 8px 10px; }
+  .faq-item summary { padding: 12px 0; }
+  .meet-item { padding: 10px 12px; }
+  .contact-card { padding: 20px 16px; }
+  .footer-top { gap: 22px 16px; padding-bottom: 22px; }
+}
 </style>
 </head>
 <body>
