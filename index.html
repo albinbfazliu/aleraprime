@@ -619,6 +619,63 @@ html.fp { scroll-padding-top: var(--hh, 62px); }
 html.fp main > section { box-sizing: border-box; height: calc(var(--vh, 100vh) - var(--hh, 62px)); min-height: 0; padding-block: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
 html.fp main > section.hero { height: var(--vh, 100vh); padding-top: var(--hh, 62px); padding-bottom: 0; }
 html.fp main > section > .wrap { zoom: var(--fit, 1); flex: none; }
+
+/* ===== Privacy notice panel ===== */
+.privacy-panel { display: none; position: fixed; inset: 0; z-index: 300; overflow-y: auto; overscroll-behavior: contain; background: #fff; -webkit-overflow-scrolling: touch; }
+.privacy-panel.is-open, .privacy-panel:target { display: block; }
+.privacy-panel:focus { outline: none; }
+body.pn-lock { overflow: hidden; }
+.pn-top { position: relative; color: var(--on-dark); background: radial-gradient(1000px 500px at 85% 0%, rgba(108,196,201,.12), transparent 60%), linear-gradient(180deg, var(--ink) 0%, var(--navy) 100%); }
+.pn-top-in { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-block: clamp(22px, 3vw, 36px); }
+.pn-top h2 { color: #fff; font-size: clamp(28px, 3vw, 40px); }
+.pn-lead { margin-top: 10px; max-width: 64ch; padding-right: 96px; font-size: 15px; color: var(--on-dark-soft); }
+.pn-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.6); }
+.pn-meta strong { color: #fff; font-weight: 600; }
+.pn-meta a { color: var(--teal-lt); }
+.pn-close { position: fixed; top: 16px; right: max(16px, calc((100vw - var(--maxw)) / 2 + 16px)); z-index: 3; background: var(--navy); box-shadow: 0 8px 20px -8px rgba(0,0,0,.45); flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #fff; font-size: 14px; font-weight: 600; transition: background .2s, border-color .2s; }
+.pn-close span { font-size: 22px; line-height: 1; font-weight: 400; }
+.pn-close em { font-style: normal; }
+.pn-close:hover { background: var(--navy-3); border-color: rgba(255,255,255,.6); }
+.pn-grid { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; align-items: start; padding-block: clamp(28px, 3.5vw, 48px) 8px; }
+.privacy-panel .toc { position: sticky; top: 24px; padding: 18px 18px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--mist); }
+.privacy-panel .toc p { margin-bottom: 10px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.privacy-panel .toc ol { display: grid; gap: 2px; counter-reset: t; }
+.privacy-panel .toc li { counter-increment: t; }
+.privacy-panel .toc a { display: flex; gap: 10px; padding: 5px 0; font-size: 14px; color: var(--muted); line-height: 1.35; transition: color .2s; }
+.privacy-panel .toc a::before { content: counter(t, decimal-leading-zero); flex: none; width: 20px; font-family: var(--serif); font-size: 13px; color: var(--teal); }
+.privacy-panel .toc a:hover, .privacy-panel .toc a.active { color: var(--navy); }
+.privacy-panel .doc { max-width: 760px; }
+.privacy-panel .doc section { padding: 24px 0; border-top: 1px solid var(--line); }
+.privacy-panel .doc section:first-child { padding-top: 0; border-top: 0; }
+.privacy-panel .doc h2 { display: flex; align-items: baseline; gap: 12px; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.2; }
+.privacy-panel .doc h2 span { font-family: var(--serif); font-size: 15px; color: var(--teal); }
+.privacy-panel .doc h3 { margin-top: 16px; font-size: 15.5px; }
+.privacy-panel .doc p, .privacy-panel .doc li { color: var(--muted); }
+.privacy-panel .doc p { margin-top: 10px; }
+.privacy-panel .doc ul { margin-top: 10px; display: grid; gap: 8px; }
+.privacy-panel .doc li { position: relative; padding-left: 20px; }
+.privacy-panel .doc li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--teal); }
+.privacy-panel .doc strong { color: var(--navy); font-weight: 600; }
+.privacy-panel .doc a:not(.btn) { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.privacy-panel .note { margin-top: 14px; padding: 14px 16px; border-radius: var(--radius-sm); background: var(--teal-wash); border: 1px solid rgba(11,110,120,.18); color: var(--teal-dk); font-size: 14.5px; }
+.privacy-panel .contact-box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; margin-top: 16px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--mist); }
+.privacy-panel .contact-box .k { display: block; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.privacy-panel .contact-box .v { display: block; margin-top: 2px; font-size: 17px; font-weight: 600; color: var(--navy); text-decoration: none; overflow-wrap: anywhere; }
+.privacy-panel .contact-box .btn { color: #fff; }
+.pn-foot { padding-block: 20px clamp(36px, 5vw, 56px); }
+@media (max-width: 980px) {
+  .pn-grid { grid-template-columns: 1fr; gap: 24px; }
+  .privacy-panel .toc { position: static; }
+  .privacy-panel .toc ol { grid-template-columns: 1fr 1fr; column-gap: 20px; }
+}
+@media (max-width: 640px) {
+  .pn-top-in { gap: 12px; }
+  .pn-close { top: 12px; right: 12px; padding: 6px 12px 6px 8px; }
+  .pn-close em { display: none; }
+  .pn-lead { padding-right: 8px; }
+  .privacy-panel .toc ol { grid-template-columns: 1fr; }
+  .privacy-panel .contact-box .btn, .pn-foot .btn { width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -1090,12 +1147,149 @@ html.fp main > section > .wrap { zoom: var(--fit, 1); flex: none; }
     <div class="footer-bottom">
       <p>© <span id="yr">2026</span> Alera Prime. All rights reserved.</p>
       <div class="footer-legal">
-        <a href="privacy.html">Privacy notice</a>
+        <a href="#privacy" data-pn-open>Privacy notice</a>
         <a href="#top" class="totop">Back to top ↑</a>
       </div>
     </div>
   </div>
 </footer>
+
+
+<!-- PRIVACY NOTICE (opens from the footer link) -->
+<div class="privacy-panel" id="privacy" role="dialog" aria-modal="true" aria-labelledby="pnTitle" tabindex="-1">
+  <div class="pn-top">
+    <div class="wrap pn-top-in">
+      <div>
+        <p class="kicker kicker-light">Legal</p>
+        <h2 id="pnTitle">Privacy Notice</h2>
+        <p class="pn-lead">This notice explains what personal information Alera Prime handles when you visit aleraprime.com or contact us, how we use it, and the choices and rights you have.</p>
+        <p class="pn-meta"><span><strong>Last updated:</strong> 15 October 2026</span><span><strong>Contact:</strong> <a href="mailto:partnerships@aleraprime.com">partnerships@aleraprime.com</a></span></p>
+      </div>
+      <a href="#top" class="pn-close" data-pn-close aria-label="Close privacy notice"><span aria-hidden="true">×</span><em>Close</em></a>
+    </div>
+  </div>
+  <div class="wrap pn-grid">
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#pn-who-we-are">Who we are</a></li>
+        <li><a href="#pn-information">Information we collect</a></li>
+        <li><a href="#pn-use">How we use information</a></li>
+        <li><a href="#pn-cookies">Cookies and tracking</a></li>
+        <li><a href="#pn-sharing">Sharing information</a></li>
+        <li><a href="#pn-transfers">International transfers</a></li>
+        <li><a href="#pn-retention">How long we keep it</a></li>
+        <li><a href="#pn-protection">Data protection</a></li>
+        <li><a href="#pn-rights">Your privacy rights</a></li>
+        <li><a href="#pn-children">Children</a></li>
+        <li><a href="#pn-changes">Changes to this notice</a></li>
+        <li><a href="#pn-contact-us">Contact us</a></li>
+      </ol>
+    </nav>
+    <article class="doc">
+      <section id="pn-who-we-are">
+        <h2><span>01</span>Who we are</h2>
+        <p>Alera Prime (“Alera Prime”, “we”, “us”) is a Data &amp; Business Intelligence services company working with organizations in the United States and Europe. We are responsible for the personal information described in this notice.</p>
+        <p>This notice covers this website (aleraprime.com) and enquiries you send to us. It does not cover data that we process on behalf of clients as part of a services engagement; that processing is governed by the agreement with the relevant client.</p>
+      </section>
+
+      <section id="pn-information">
+        <h2><span>02</span>Information we collect</h2>
+        <h3>When you visit this website</h3>
+        <p>You can browse this website without telling us who you are. The site has no user accounts or sign-up forms, and we do not ask you to submit personal information through it.</p>
+        <p>This website is hosted on GitHub Pages. As with most websites, the hosting provider receives technical information needed to deliver pages to your browser. GitHub states that when a GitHub Pages site is visited, the visitor’s IP address is logged and stored for security purposes. For details, please see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub’s Privacy Statement</a>.</p>
+        <h3>When you contact us</h3>
+        <p>If you email us, we receive the information you choose to share, such as:</p>
+        <ul>
+          <li>your name and email address;</li>
+          <li>your company and role, if you include them;</li>
+          <li>the content of your message and any further correspondence.</li>
+        </ul>
+        <p>Please do not send us sensitive personal information by email unless we have agreed a secure way to share it.</p>
+      </section>
+
+      <section id="pn-use">
+        <h2><span>03</span>How we use information</h2>
+        <p>We use the information you send us to:</p>
+        <ul>
+          <li>reply to your enquiry and answer your questions;</li>
+          <li>arrange and hold an introductory meeting;</li>
+          <li>discuss our services and, where requested, prepare a proposal;</li>
+          <li>keep a record of our correspondence with you.</li>
+        </ul>
+        <p>Where the EU or UK General Data Protection Regulation (GDPR) applies, we rely on our <strong>legitimate interests</strong> in responding to business enquiries and, where relevant, on taking <strong>steps at your request before entering into a contract</strong>.</p>
+      </section>
+
+      <section id="pn-cookies">
+        <h2><span>04</span>Cookies and tracking</h2>
+        <p>This website does <strong>not</strong> use cookies, analytics, advertising, or other tracking technologies. Fonts and images are served from this website itself rather than from third-party services.</p>
+        <p>The website links to external sites, such as our LinkedIn page. If you follow those links, the other site’s own privacy and cookie policies apply.</p>
+        <p class="note">If we introduce cookies or analytics in the future, we will update this notice and, where required by law, ask for your consent first.</p>
+      </section>
+
+      <section id="pn-sharing">
+        <h2><span>05</span>Sharing information</h2>
+        <p>We do not sell your personal information, and we do not share it for advertising purposes.</p>
+        <p>Service providers that host this website and provide our email service process information on our behalf so that we can operate the website and communicate with you. We may also disclose information where required by law or to protect our legal rights.</p>
+      </section>
+
+      <section id="pn-transfers">
+        <h2><span>06</span>International transfers</h2>
+        <p>Because we work with organizations in the United States and Europe, and because our service providers may operate in different countries, your information may be processed outside the country where you live. Where data protection law requires it, we take steps to make sure that your information remains protected when it is transferred.</p>
+      </section>
+
+      <section id="pn-retention">
+        <h2><span>07</span>How long we keep it</h2>
+        <p>We keep enquiry correspondence only for as long as it is needed for the purposes described in this notice, including any resulting business relationship, or as required by law. When it is no longer needed, we delete it.</p>
+      </section>
+
+      <section id="pn-protection">
+        <h2><span>08</span>Data protection</h2>
+        <p>We take appropriate measures to protect personal information against loss, misuse, and unauthorized access. This website is served over an encrypted (HTTPS) connection, and it does not collect personal information through forms.</p>
+        <p>No method of transmitting or storing information is completely secure, so we cannot guarantee absolute security. If you have a concern, please contact us.</p>
+      </section>
+
+      <section id="pn-rights">
+        <h2><span>09</span>Your privacy rights</h2>
+        <p>Depending on where you live, you may have some or all of the following rights regarding your personal information:</p>
+        <h3>If you are in the European Economic Area or the United Kingdom</h3>
+        <ul>
+          <li><strong>Access</strong> — to request a copy of the personal information we hold about you;</li>
+          <li><strong>Rectification</strong> — to ask us to correct inaccurate or incomplete information;</li>
+          <li><strong>Erasure</strong> — to ask us to delete your information;</li>
+          <li><strong>Restriction</strong> — to ask us to limit how we use your information;</li>
+          <li><strong>Objection</strong> — to object to processing based on our legitimate interests;</li>
+          <li><strong>Portability</strong> — to receive information you provided to us in a commonly used format;</li>
+          <li><strong>Complaint</strong> — to lodge a complaint with your local data protection supervisory authority.</li>
+        </ul>
+        <h3>If you are in the United States</h3>
+        <p>Residents of certain US states, such as California, may have the right to know what personal information we hold about them, to request access to it, to correct it, and to request its deletion. We do not sell personal information and will not discriminate against you for exercising your privacy rights.</p>
+        <h3>How to exercise your rights</h3>
+        <p>To make a request, email <a href="mailto:partnerships@aleraprime.com">partnerships@aleraprime.com</a>. We may need to confirm your identity before acting on your request, and we will respond within the timeframes required by applicable law.</p>
+      </section>
+
+      <section id="pn-children">
+        <h2><span>10</span>Children</h2>
+        <p>This website and our services are intended for businesses and are not directed at children. We do not knowingly collect personal information from children.</p>
+      </section>
+
+      <section id="pn-changes">
+        <h2><span>11</span>Changes to this notice</h2>
+        <p>We may update this notice from time to time. The “Last updated” date at the top of this page shows when it was last revised.</p>
+      </section>
+
+      <section id="pn-contact-us">
+        <h2><span>12</span>Contact us</h2>
+        <p>If you have any questions about this notice or how we handle personal information, please contact us.</p>
+        <div class="contact-box">
+          <div><span class="k">Email</span><a class="v" href="mailto:partnerships@aleraprime.com">partnerships@aleraprime.com</a></div>
+          <a href="mailto:partnerships@aleraprime.com" class="btn btn-accent">Email us <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div class="wrap pn-foot"><a href="#top" class="btn btn-outline" data-pn-close>← Back to the website</a></div>
+</div>
 
 <script src="assets/js/main.js" defer></script>
 <script>
@@ -1172,6 +1366,54 @@ html.fp main > section > .wrap { zoom: var(--fit, 1); flex: none; }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
   window.addEventListener('load', fit);
   fit();
+})();
+</script>
+<script>
+/* Privacy notice panel: open from the footer link or #privacy, close with button, Esc or Back */
+(function () {
+  var panel = document.getElementById('privacy'); if (!panel) return;
+  var body = document.body, lastFocus = null, savedY = 0;
+  function open(push) {
+    if (panel.classList.contains('is-open')) return;
+    lastFocus = document.activeElement; savedY = window.scrollY;
+    panel.classList.add('is-open'); body.classList.add('pn-lock'); panel.scrollTop = 0;
+    if (push && location.hash !== '#privacy') history.pushState({ pn: 1 }, '', '#privacy');
+    panel.focus({ preventScroll: true });
+  }
+  function close(fromHistory) {
+    if (!panel.classList.contains('is-open')) return;
+    panel.classList.remove('is-open'); body.classList.remove('pn-lock');
+    if (!fromHistory && location.hash === '#privacy') history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo({ top: savedY, behavior: 'instant' });
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+  document.querySelectorAll('[data-pn-open]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); open(true); });
+  });
+  panel.querySelectorAll('[data-pn-close]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); close(false); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.classList.contains('is-open')) close(false); });
+  window.addEventListener('popstate', function () { if (location.hash === '#privacy') open(false); else close(true); });
+  window.addEventListener('hashchange', function () { if (location.hash === '#privacy') open(false); });
+  // contents links scroll inside the panel and keep it open
+  var links = [].slice.call(panel.querySelectorAll('.toc a'));
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var t = document.getElementById(a.getAttribute('href').slice(1)); if (!t) return;
+      var off = 70;
+      panel.scrollTo({ top: t.getBoundingClientRect().top - panel.getBoundingClientRect().top + panel.scrollTop - off, behavior: 'smooth' });
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    var map = {}; links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { links.forEach(function (a) { a.classList.remove('active'); }); map[en.target.id].classList.add('active'); } });
+    }, { root: panel, rootMargin: '-35% 0px -55% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+  if (location.hash === '#privacy') open(false);
 })();
 </script>
 </body>
